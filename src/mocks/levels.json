@@ -1,0 +1,72 @@
+{
+  "0": {
+    "name": "first floor",
+    "size": {
+      "rows": 10,
+      "cols": 10
+    },
+    "firstRows": [
+      {
+        "notVoid": [1, 4, 5, 8],
+        "composition": {
+          "fight": 4,
+          "void": 6
+        }
+      }
+    ],
+    "lastRows": [
+      {
+        "notVoid": [1, 3, 5, 7, 9],
+        "composition": {
+          "potion": 5,
+          "void": 5
+        }
+      },
+      {
+        "notVoid": [1, 3, 5, 7, 9],
+        "composition": {
+          "chest": 5,
+          "void": 5
+        }
+      }
+    ],
+    "composition": {
+      "fight": 200,
+      "chest": 20,
+      "shop": 5,
+      "pill": 25,
+      "potion": 25,
+      "void": 25
+    }
+  },
+  "1": {
+    "name": "second floor",
+    "size": {
+      "rows": 4,
+      "cols": 5
+    },
+    "composition": {
+      "fight": 6,
+      "chest": 3,
+      "shop": 2,
+      "midboss": 2,
+      "pills": 4,
+      "void": 3
+    }
+  },
+  "2": {
+    "name": "third floor",
+    "size": {
+      "rows": 5,
+      "cols": 6
+    },
+    "composition": {
+      "fight": 6,
+      "chest": 3,
+      "shop": 2,
+      "midboss": 2,
+      "pills": 4,
+      "void": 3
+    }
+  }
+}

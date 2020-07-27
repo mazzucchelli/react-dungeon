@@ -1,0 +1,61 @@
+import React from "react";
+import { GameContext } from "../contexts/Game";
+import BaseTile from "./c.Tile";
+import { GIF } from "./c.GIF";
+
+const Potion = ({ data, tile, ...rest }) => {
+  const { handleAction, dispatch } = React.useContext(GameContext);
+  const { available, discovered, type } = tile;
+  const [effects, setEffects] = React.useState([]);
+
+  const coords = {
+    x: tile.coords.split("-")[0].trim() * 1,
+    y: tile.coords.split("-")[1].trim() * 1
+  }
+
+  React.useEffect(() => {
+    const res = [];
+    for (const [key, value] of Object.entries(data.actions[0].payload)) {
+      res.push({
+        label: key,
+        value,
+      });
+    }
+    setEffects(res);
+  }, []);
+
+  // const handleClick = () => {
+  //   if (!available) return;
+  //   const newStats = updatePlayerStats(data.params);
+  //   dispatch({ type: "player-stats", payload: newStats });
+  //   movePlayer({ x, y });
+  // };
+
+  const handleClick = () => {
+    if (!available) return;
+    data.actions.forEach((action) => {
+      handleAction(action);
+    });
+
+    dispatch({ type: "player-move", payload: coords });
+  };
+
+  return (
+    <BaseTile data={data} tile={tile} {...rest} onClick={() => handleClick()}>
+      {discovered ? (
+        <>
+          <GIF name={data.sprite} image={`assets/potions/${data.sprite}.png`} size={38} frames={data.frames} />
+          {effects.map((el, i) => (
+            <span key={i} className={el.label}>
+              {el.label}: {el.value}
+            </span>
+          ))}
+        </>
+      ) : (
+        ""
+      )}
+    </BaseTile>
+  );
+};
+
+export default Potion;

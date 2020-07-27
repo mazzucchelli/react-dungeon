@@ -1,0 +1,58 @@
+[
+  {
+    "name": "monsters",
+    "type": "fight",
+    "background": "#FFCD70",
+    "discovered": false,
+    "available": false,
+    "completed": false
+  },
+  {
+    "name": "treasure",
+    "type": "chest",
+    "background": "#8CBA80",
+    "discovered": false,
+    "available": false,
+    "completed": false
+  },
+  {
+    "name": "shop",
+    "type": "shop",
+    "background": "#009FFD",
+    "discovered": false,
+    "available": false,
+    "completed": false
+  },
+  {
+    "name": "boss",
+    "type": "boss",
+    "background": "#C95D63",
+    "discovered": false,
+    "available": false,
+    "completed": false
+  },
+  {
+    "name": "pill",
+    "type": "pill",
+    "background": "#7F2982",
+    "discovered": false,
+    "available": false,
+    "completed": false
+  },
+  {
+    "name": "potion",
+    "type": "potion",
+    "background": "#8CBA80",
+    "discovered": false,
+    "available": false,
+    "completed": false
+  },
+  {
+    "name": "void",
+    "type": "void",
+    "background": "transparent",
+    "discovered": false,
+    "available": false,
+    "completed": false
+  }
+]
