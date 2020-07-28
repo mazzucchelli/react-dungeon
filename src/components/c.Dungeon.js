@@ -38,7 +38,7 @@ const DungeonGrid = () => {
 };
 
 export default function Dungeon() {
-  const { gridRef, scrollBottom } = React.useContext(GameContext);
+  const { gridRef } = React.useContext(GameContext);
 
   return (
     <OverflowHidden ref={gridRef}>

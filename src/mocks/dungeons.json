@@ -1,8 +1,16 @@
 [
   {
+    "name": "empty",
+    "type": "empty",
+    "background": "#414141",
+    "discovered": false,
+    "available": false,
+    "completed": false
+  },
+  {
     "name": "monsters",
     "type": "fight",
-    "background": "#FFCD70",
+    "background": "#414141",
     "discovered": false,
     "available": false,
     "completed": false
@@ -34,7 +42,7 @@
   {
     "name": "pill",
     "type": "pill",
-    "background": "#7F2982",
+    "background": "#414141",
     "discovered": false,
     "available": false,
     "completed": false

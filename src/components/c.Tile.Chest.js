@@ -23,7 +23,7 @@ const Chest = ({ data, tile, ...rest }) => {
   return (
     <BaseTile onClick={() => handleClick()} tile={tile} data={data} {...rest}>
       {tile.discovered ? <ChestIcon type={tile.type} /> : ""}
-      {JSON.stringify(data)}
+      {/* {JSON.stringify(data)} */}
     </BaseTile>
   );
 };

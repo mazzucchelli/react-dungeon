@@ -2,6 +2,7 @@ import React, { useEffect, useReducer, useState, useRef } from "react";
 
 import reducer from "./reducer";
 import levels from "../mocks/levels.json";
+import { rollDice } from "../helpers/utilities";
 import {
   generateDungeon,
   generateTiles,
@@ -11,25 +12,14 @@ import {
 
 export const GameContext = React.createContext();
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   config: {
     started: false,
     currentFloor: 0,
     currentLevel: 0,
+    selectedCharacter: false,
   },
-  player: {
-    stats: {
-      HP: 10,
-      maxHP: 20,
-      att: 5,
-      shield: 10,
-    },
-    coins: 10,
-    position: null, // -> coords [x, y]
-    inventory: [],
-    can_see: "front_round",
-    can_move: "front_perimeter",
-  },
+  player: {},
   dungeon: [],
   potions: {},
   items: {},
@@ -59,8 +49,8 @@ const initialCardsStats = (grid) => {
   });
 };
 
-const createDungeoun = (currentLevel) => {
-  const START_INDEX = 1;
+export const createDungeoun = (currentLevel) => {
+  const START_INDEX = 2;
   const baseMap = generateDungeon(levels[currentLevel], START_INDEX);
   const mapWithTilesData = generateTiles(baseMap, currentLevel);
   const mapWithFirstRow = generateFirstRows(mapWithTilesData, currentLevel);
@@ -75,15 +65,16 @@ export const GameProvider = ({ children }) => {
   const [prevFloor, setPrevFloor] = useState(0);
   const gridRef = useRef(null);
 
+  // mount component effect
   useEffect(() => {
     const dungeon = createDungeoun(game.config.currentLevel);
     dispatch({
       type: "update-dungeon",
       payload: dungeon,
     });
-    dispatch({ type: "game-start" });
   }, []);
 
+  // hanndle scroll position effect
   useEffect(() => {
     const { position } = game.player;
     const { currentFloor } = game.config;
@@ -95,6 +86,30 @@ export const GameProvider = ({ children }) => {
       }
     }
   }, [game.player, game.config]);
+
+  // game over effect
+  useEffect(() => {
+    if (!game.config.started) return;
+
+    const { player, dungeon } = game;
+    const HPcheck = player.stats.HP <= 0;
+    let availableTiles = [];
+    // TODO: exit loop
+    dungeon.forEach((row, i) => {
+      const founds = row.filter((tile) => tile.available && tile.type !== "void")
+      if (founds.length > 0) {
+        availableTiles.push(...founds);
+      }
+    });
+
+    console.log(game, HPcheck, availableTiles, availableTiles.length, availableTiles.length === 0);
+
+    if (HPcheck || availableTiles.length === 0) {
+      dispatch({
+        type: "game-over",
+      });
+    }
+  }, [game.player, game.dungeon]);
 
   useEffect(() => {}, [game]);
 
@@ -128,11 +143,19 @@ export const GameProvider = ({ children }) => {
     const target = searchedRow.filter(
       (target) => target.data && target.data.id === data.id
     )[0];
-    if (target.data.stats.shield > 0) {
-      const res = target.data.stats.shield - player.stats.att;
-      target.data.stats.shield = res < 0 ? 0 : res;
-    } else {
-      target.data.stats.HP -= player.stats.att;
+    let elusionSuccess = true;
+
+    if (target.data.stats.elusion) {
+      elusionSuccess = rollDice(target.data.stats.elusion);
+    }
+
+    if (elusionSuccess) {
+      if (target.data.stats.shield > 0) {
+        const res = target.data.stats.shield - player.stats.att;
+        target.data.stats.shield = res < 0 ? 0 : res;
+      } else {
+        target.data.stats.HP -= player.stats.att;
+      }
     }
 
     const updatedDungeon = dungeon.map((row, i) => {
@@ -183,7 +206,7 @@ export const GameProvider = ({ children }) => {
         dispatch({ type: "player-stats", payload: updatedPlayerStats });
         break;
       default:
-        console.log("!! unregistered action", type, payload);
+        console.error("Unregistered action", type, payload);
         break;
     }
   };

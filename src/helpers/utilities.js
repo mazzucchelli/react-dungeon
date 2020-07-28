@@ -1,4 +1,4 @@
-export const shuffle = array => {
+export const shuffle = (array) => {
   var currentIndex = array.length,
     temporaryValue,
     randomIndex;
@@ -16,4 +16,15 @@ export const shuffle = array => {
   }
 
   return array;
+};
+
+export const rollPure = (min, max) => {
+  // return (min || 0) + Math.floor(Math.random() * ((max || 20) - (min || 0)));
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+export const rollDice = (check, min, max) => {
+  const roll =
+    (min || 1) + Math.floor(Math.random() * ((max || 20) - (min || 1) + 1));
+  return roll >= check;
 };

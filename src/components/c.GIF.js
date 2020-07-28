@@ -6,7 +6,7 @@ export const GIF = styled("div")`
   background-image: ${({ image }) => `url(${image})`};
   background-size: cover;
   animation: ${({ name, frames, duration }) =>
-    `play-${name} ${duration || 0.8}s steps(${frames}) infinite`};
+    `play-${name} ${0.2 * frames}s steps(${frames}) infinite`};
 
     ${({ name, frames, size }) => `
         @keyframes play-${name} {

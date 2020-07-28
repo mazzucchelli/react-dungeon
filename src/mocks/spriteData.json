@@ -1,0 +1,1892 @@
+{
+    "AirA copy": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "AirA": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "BallA": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "BallB": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "BallC": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "BallD": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "BatA": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BatB": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BatC copy": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BatC": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BatD": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BatE": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BatF": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BatG": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BatH": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BatI": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BatJ": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BatK": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BatL": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BatM": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BatN": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BatO": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BatP": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BatQ": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BatR": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BatS": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BatSmallA": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "BatSmallB": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "BatSmallC": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "BatSmallD": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "BatSmallE": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "BatT": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "BeardA": {
+        "width": 160,
+        "height": 16,
+        "frames": 10
+    },
+    "BeardB": {
+        "width": 160,
+        "height": 16,
+        "frames": 10
+    },
+    "BrainA": {
+        "width": 192,
+        "height": 16,
+        "frames": 12
+    },
+    "BrainB": {
+        "width": 192,
+        "height": 16,
+        "frames": 12
+    },
+    "BrainC": {
+        "width": 192,
+        "height": 16,
+        "frames": 12
+    },
+    "BrainD": {
+        "width": 192,
+        "height": 16,
+        "frames": 12
+    },
+    "BrainE": {
+        "width": 192,
+        "height": 16,
+        "frames": 12
+    },
+    "BugA": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "BugB": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "BugC": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "BugD": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "BugE": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "ButterflyA": {
+        "width": 160,
+        "height": 16,
+        "frames": 10
+    },
+    "ButterflyB": {
+        "width": 160,
+        "height": 16,
+        "frames": 10
+    },
+    "CatA": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "CatB": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "CatC": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "CatD": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "CatE": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "CatF": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "ChestA": {
+        "width": 160,
+        "height": 16,
+        "frames": 10
+    },
+    "ChickenA": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "ChickenB": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "ChickenC": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "CloudA": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "CloudB": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "CloudC": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "CloudD": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "CoffinA": {
+        "width": 176,
+        "height": 16,
+        "frames": 11
+    },
+    "CoffinB": {
+        "width": 176,
+        "height": 16,
+        "frames": 11
+    },
+    "CoffinC": {
+        "width": 176,
+        "height": 16,
+        "frames": 11
+    },
+    "CoffinD": {
+        "width": 176,
+        "height": 16,
+        "frames": 11
+    },
+    "CountA": {
+        "width": 192,
+        "height": 16,
+        "frames": 12
+    },
+    "CrabA": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "CrabB": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "CrabC": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "CrabD": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "CrabE": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "CrabF": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "DiscA": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "DogA": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "DogB": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "DogC": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "DogD": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "DogE": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "DogF": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "DogG": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "DuckA": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "DuckB": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "DuckC": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "DwarfA": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "DwarfB": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "DwarfC": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "DwarfD": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "DwarfE": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "DwarfF": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "DyeA": {
+        "width": 192,
+        "height": 16,
+        "frames": 12
+    },
+    "DyeB": {
+        "width": 192,
+        "height": 16,
+        "frames": 12
+    },
+    "DyeC": {
+        "width": 192,
+        "height": 16,
+        "frames": 12
+    },
+    "DyeD": {
+        "width": 192,
+        "height": 16,
+        "frames": 12
+    },
+    "EarthA": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "EarthB": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "EarthC": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "EarthSmallA": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "EarthSmallB": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "EarthSmallC": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "EarthSmallerA": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "EarthSmallerB": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "EarthSmallerC": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "EelA": {
+        "width": 256,
+        "height": 16,
+        "frames": 16
+    },
+    "EelB": {
+        "width": 256,
+        "height": 16,
+        "frames": 16
+    },
+    "EelC": {
+        "width": 256,
+        "height": 16,
+        "frames": 16
+    },
+    "EelD": {
+        "width": 256,
+        "height": 16,
+        "frames": 16
+    },
+    "ElementalOrbA": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "ElementalOrbB": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "EyeA": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "EyeB": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "EyeBallA": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "EyeBallB": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "EyeBallC": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "EyeC": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "EyeD": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "FactoryA": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "FactoryB": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "FireSmallA": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "FishA": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "FishB": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "FishC": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "FrogA": {
+        "width": 160,
+        "height": 16,
+        "frames": 10
+    },
+    "FrogB": {
+        "width": 160,
+        "height": 16,
+        "frames": 10
+    },
+    "FrogC": {
+        "width": 160,
+        "height": 16,
+        "frames": 10
+    },
+    "FrogD": {
+        "width": 160,
+        "height": 16,
+        "frames": 10
+    },
+    "FrogE": {
+        "width": 160,
+        "height": 16,
+        "frames": 10
+    },
+    "GhastA": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "GhastB": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "GhastC": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "GnomeA": {
+        "width": 192,
+        "height": 32,
+        "frames": 6
+    },
+    "GnomeB": {
+        "width": 192,
+        "height": 32,
+        "frames": 6
+    },
+    "GnomeC": {
+        "width": 192,
+        "height": 32,
+        "frames": 6
+    },
+    "GoatA": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "GoatB": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "GolemA": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "HareA": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "HareB": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "HareC": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "HareD": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "HeadA": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "HeadB": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "HeadC": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "HeadD": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "HulkA": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "HulkB": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "KlackonA": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "KlackonB": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "KlackonC": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "KlackonD": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "KlackonE": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "KlackonF": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "LurkerA": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "LurkerB": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "LurkerC": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "MachineA": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "MaskA": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "MaskB": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "MaskC": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "MaskD": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "MonolithA": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "MonolithB": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "MonolithC": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "MonolithD": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "MonolithE": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "MonolithF": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "MonolithG": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "MonolithH": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "MonolithI": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "MonolithJ": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "MonolithK": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "MonolithL": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "MothA": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "MothB": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "MothC": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "MothD": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "MothE": {
+        "width": 48,
+        "height": 16,
+        "frames": 3
+    },
+    "MouthA": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "MouthB": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "MouthC": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "MummyA": {
+        "width": 160,
+        "height": 16,
+        "frames": 10
+    },
+    "MummyB": {
+        "width": 160,
+        "height": 16,
+        "frames": 10
+    },
+    "MummyC": {
+        "width": 160,
+        "height": 16,
+        "frames": 10
+    },
+    "MushroomA": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "MushroomB": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "OrbA": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "OrbB": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "OrbC": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "OrbD": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "PotionA": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "PotionB": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "PotionC": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "PotionD": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "PotionE": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "PotionF": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "PotionG": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "PotionH": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "PotionI": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "PotionJ": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "PotionK": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "PotionL": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "PterodactylA": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "PterodactylB": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "PterodactylC": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "PterodactylD": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "PterodactylE": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "PterodactylF": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "PterodactylG": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "PterodactylH": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "PuddleA": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "PuddleB": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "PuddleC": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "PyramidA": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "PyramidB": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "ReaperA": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "RobotA": {
+        "width": 160,
+        "height": 16,
+        "frames": 10
+    },
+    "RobotB": {
+        "width": 160,
+        "height": 16,
+        "frames": 10
+    },
+    "RobotC": {
+        "width": 160,
+        "height": 16,
+        "frames": 10
+    },
+    "RobotD": {
+        "width": 160,
+        "height": 16,
+        "frames": 10
+    },
+    "ScorpionA": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "ScorpionB": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "ScorpionC": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "SentryA": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "SentryB": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "SentryC": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "SentryCopterA": {
+        "width": 160,
+        "height": 16,
+        "frames": 10
+    },
+    "SentryCopterB": {
+        "width": 160,
+        "height": 16,
+        "frames": 10
+    },
+    "SentryCopterC": {
+        "width": 160,
+        "height": 16,
+        "frames": 10
+    },
+    "ShieldA": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "ShieldB": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "ShieldC": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "ShieldD": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "ShieldE": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "ShieldF": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "SkeletonA": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "SkeletonB": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "SkeletonC": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "SkeletonD": {
+        "width": 144,
+        "height": 16,
+        "frames": 9
+    },
+    "SkullA": {
+        "width": 208,
+        "height": 16,
+        "frames": 13
+    },
+    "SkullB": {
+        "width": 208,
+        "height": 16,
+        "frames": 13
+    },
+    "SkullC": {
+        "width": 208,
+        "height": 16,
+        "frames": 13
+    },
+    "SkullD": {
+        "width": 208,
+        "height": 16,
+        "frames": 13
+    },
+    "SkullFlamingA": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "SkullFlamingB": {
+        "width": 64,
+        "height": 16,
+        "frames": 4
+    },
+    "SkullSmallA": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SkullSmallB": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SkullSmallC": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SkullSmallD": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SkullSmallE": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SkullSmallF": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SkullSmallG": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SkullSmallH": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeA": {
+        "width": 256,
+        "height": 16,
+        "frames": 16
+    },
+    "SlimeB": {
+        "width": 256,
+        "height": 16,
+        "frames": 16
+    },
+    "SlimeC": {
+        "width": 256,
+        "height": 16,
+        "frames": 16
+    },
+    "SlimeD": {
+        "width": 256,
+        "height": 16,
+        "frames": 16
+    },
+    "SlimeE": {
+        "width": 256,
+        "height": 16,
+        "frames": 16
+    },
+    "SlimeF": {
+        "width": 256,
+        "height": 16,
+        "frames": 16
+    },
+    "SlimeG": {
+        "width": 256,
+        "height": 16,
+        "frames": 16
+    },
+    "SlimeH": {
+        "width": 256,
+        "height": 16,
+        "frames": 16
+    },
+    "SlimeI": {
+        "width": 256,
+        "height": 16,
+        "frames": 16
+    },
+    "SlimeJ": {
+        "width": 256,
+        "height": 16,
+        "frames": 16
+    },
+    "SlimeK": {
+        "width": 256,
+        "height": 16,
+        "frames": 16
+    },
+    "SlimeL": {
+        "width": 256,
+        "height": 16,
+        "frames": 16
+    },
+    "SlimeM": {
+        "width": 256,
+        "height": 16,
+        "frames": 16
+    },
+    "SlimeN": {
+        "width": 256,
+        "height": 16,
+        "frames": 16
+    },
+    "SlimeO": {
+        "width": 256,
+        "height": 16,
+        "frames": 16
+    },
+    "SlimeP": {
+        "width": 256,
+        "height": 16,
+        "frames": 16
+    },
+    "SlimeSmallA": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "SlimeSmallB": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "SlimeSmallC": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "SlimeSmallD": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "SlimeSmallE": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "SlimeSmallerA": {
+        "width": 224,
+        "height": 16,
+        "frames": 14
+    },
+    "SlimeSmallerB": {
+        "width": 224,
+        "height": 16,
+        "frames": 14
+    },
+    "SlimeSmallerC": {
+        "width": 224,
+        "height": 16,
+        "frames": 14
+    },
+    "SlimeSmallerD": {
+        "width": 224,
+        "height": 16,
+        "frames": 14
+    },
+    "SlimeSmallerE": {
+        "width": 224,
+        "height": 16,
+        "frames": 14
+    },
+    "SlimeSmallerF": {
+        "width": 224,
+        "height": 16,
+        "frames": 14
+    },
+    "SlimeSmallerG": {
+        "width": 224,
+        "height": 16,
+        "frames": 14
+    },
+    "SlimeSmallF": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "SlimeSmallG": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "SlimeSmallH": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "SlimeSmallI": {
+        "width": 240,
+        "height": 16,
+        "frames": 15
+    },
+    "SlimeSquareA": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareB": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareC": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareD": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareE": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareF": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareG": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareH": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareI": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareJ": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareK": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareL": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareSmallA": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareSmallB": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareSmallC": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareSmallD": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareSmallE": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareSmallerA": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareSmallerB": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareSmallerC": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareSmallerD": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareSmallerE": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareSmallerF": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareSmallerG": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareSmallerH": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareSmallerI": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareSmallerJ": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareSmallF": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareSmallG": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlimeSquareSmallH": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlugA": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlugB": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlugC": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlugD": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlugE": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlugF": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SlugG": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SnakeA": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SnakeB": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SnakeC": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SnakeD": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SnakeE": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SnakeF": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SnakeG": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SnakeH": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SnakeI": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SnakeJ": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SnakeK": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SnakeL": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "SpaceA": {
+        "width": 192,
+        "height": 16,
+        "frames": 12
+    },
+    "SparksA": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "SphereA": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "SphereB": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "SphereC": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "SphereD": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "SquirrelA": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "SquirrelB": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "SwordA": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "SwordB": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "TentacleA": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "TentacleB": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "TentacleC": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "TentacleD": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "TentacleE": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "TentacleF": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "WaterA": {
+        "width": 80,
+        "height": 16,
+        "frames": 5
+    },
+    "WaterSmallA": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "WeaselA": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "WeaselB": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "WeaselC": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "WitchA": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "WitchB": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "WitchC": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "WitchD": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "WitchE": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "WitchF": {
+        "width": 128,
+        "height": 16,
+        "frames": 8
+    },
+    "WormA copy": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "WormA": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "WormB copy": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "WormB": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "WormC copy": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "WormC": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "WormD copy": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "WormD": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "WormE copy": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "WormE": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "WormF copy": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "WormF": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "WormG copy": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "WormG": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "WormH copy 2": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "WormH copy": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "WormH": {
+        "width": 112,
+        "height": 16,
+        "frames": 7
+    },
+    "ZombieA copy": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "ZombieA": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    },
+    "ZombieB": {
+        "width": 96,
+        "height": 16,
+        "frames": 6
+    }
+}

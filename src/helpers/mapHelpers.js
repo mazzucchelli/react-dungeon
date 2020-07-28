@@ -6,7 +6,7 @@ import levels from "../mocks/levels.json";
 import generators from "./Generator";
 import playerView from "./playerView";
 
-const { ItemAPI, PillAPI, FightAPI, PotionAPI } = generators;
+const { ItemAPI, PillAPI, FightAPI, PotionAPI, GeneratorAPI } = generators;
 
 const findCards = (coords, schema) => {
   const finder = playerView[schema];
@@ -28,7 +28,7 @@ export const handleCardStatus = (dungeon, coords, schemas) => {
           !cell.discovered && discoverArr.includes(cell.coords)
             ? true
             : cell.discovered,
-        available: availableArr.includes(cell.coords),
+        available: availableArr.includes(cell.coords) && !cell.completed,
         completed:
           !cell.completed && cell.coords === `${x} - ${y}`
             ? true
@@ -75,9 +75,9 @@ export const generateDungeon = (lvl, startIndex) => {
     randomMap.push(row);
   }
 
-  console.log("----");
-  console.log(randomMap);
-  console.log("----");
+  // console.log("----");
+  // console.log(randomMap);
+  // console.log("----");
 
   // prevent void for final boss side cells
   return randomMap;
@@ -101,14 +101,14 @@ export const generateFirstRows = (dungeonMap, lvl) => {
         row.push({
           ...notVoidTiles[0],
           id: shortid.generate(),
-          coords: `${i} - ${j}`,
+          coords: `${foundRows.length - 1 - i} - ${j}`,
         });
         notVoidTiles.splice(0, 1);
       } else {
         row.push({
           ...voidTiles[0],
           id: shortid.generate(),
-          coords: `${i} - ${j}`,
+          coords: `${foundRows.length - 1 - i} - ${j}`,
         });
         voidTiles.splice(0, 1);
       }
@@ -118,7 +118,7 @@ export const generateFirstRows = (dungeonMap, lvl) => {
     dungeonMap.unshift(rowWithTilesData);
   });
 
-  console.log('first', dungeonMap)
+  // console.log("first", dungeonMap);
 
   return dungeonMap;
 };
@@ -128,10 +128,10 @@ export const generateLastRows = (dungeonMap, lvl) => {
   const foundRows = levels[currentLevel].lastRows;
   const rowLength = levels[currentLevel].size.cols;
 
-  console.log(foundRows)
+  // console.log(foundRows);
 
   foundRows.forEach((el) => {
-    const i = dungeonMap.length
+    const i = dungeonMap.length;
     const { notVoid, composition } = el;
     const data = dungeonList(composition);
 
@@ -161,7 +161,7 @@ export const generateLastRows = (dungeonMap, lvl) => {
     dungeonMap.push(rowWithTilesData);
   });
 
-  console.log('last', dungeonMap)
+  // console.log("last", dungeonMap);
 
   return dungeonMap;
 };
@@ -200,6 +200,11 @@ export const generateTiles = (dungeonMap, lvl) => {
 export const generateTilesByRow = (dungeonRow, lvl) => {
   return dungeonRow.map((cell) => {
     switch (cell.type) {
+      // case "empty":
+      //   return {
+      //     ...cell,
+      //     data: [GeneratorAPI.getEmpty()],
+      //   };
       case "chest":
         return {
           ...cell,
@@ -221,6 +226,7 @@ export const generateTilesByRow = (dungeonRow, lvl) => {
           data: PotionAPI.getItem(),
         };
       default:
+        // console.log("generate no type", cell);
         return cell;
     }
   });

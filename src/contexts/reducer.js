@@ -1,4 +1,5 @@
 import { handleCardStatus } from "../helpers/mapHelpers";
+import { INITIAL_STATE } from "./Game";
 
 export default function reducer(state, action) {
   const { payload } = action;
@@ -13,14 +14,14 @@ export default function reducer(state, action) {
         },
       };
     case "game-over":
+      console.log("game-over");
+      return INITIAL_STATE;
+    case "select-player":
       return {
         ...state,
-        started: false,
+        config: { ...state.config, selectedCharacter: true },
+        player: payload,
       };
-    case "select-player":
-      console.log("select-player, nothing happend");
-      return { ...state };
-
     // DUNGEON
     case "update-dungeon":
       return {

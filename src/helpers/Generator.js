@@ -16,14 +16,14 @@ const modes = {
 class Generator {
   constructor(mode) {
     this.currentMode = mode;
-    this.list = modes[mode]; // all items based on what's requested
+    this.list = modes[mode] || null; // all items based on what's requested
     this.stack = []; // stack of items
     this.cached = []; // items generated
     this.slugs = []; // list of slugs for generated items, used to filter out item from stack when max qty is reached
     this.maxQuantities = {}; // map of quantities by slug
     this.picked = []; // list of items picked (only slugs)
 
-    this.init();
+    if (mode) this.init();
   }
 
   updateCounter() {
@@ -67,10 +67,14 @@ class Generator {
       case "fight":
         const stats = {};
         for (const [key, value] of Object.entries(el.stats)) {
-          const splittedValues = value.split("|");
-          const min = splittedValues[0].trim() * 1;
-          const max = splittedValues[1].trim() * 1;
-          stats[key] = Math.floor(Math.random() * max) + min;
+          if (typeof value === "string" && value.includes("|")) {
+            const splittedValues = value.split("|");
+            const min = splittedValues[0].trim() * 1;
+            const max = splittedValues[1].trim() * 1;
+            stats[key] = Math.floor(Math.random() * max) + min;
+          } else {
+            stats[key] = value;
+          }
         }
 
         const rewards = {};
@@ -93,7 +97,7 @@ class Generator {
   }
 
   generateStack() {
-    console.log(this.currentMode, "generating new stack")
+    // console.log(this.currentMode, "generating new stack");
     this.list.forEach((el) => {
       for (let i = 0; i < el.probability * el.quantity; i++) {
         if (!this.slugs.includes(el.slug)) {
@@ -125,7 +129,7 @@ class Generator {
 
   getItem() {
     this.shuffleStack();
-    console.log(this.currentMode, this.stack.length);
+    // console.log(this.currentMode, this.stack.length);
     const res = this.stack[0];
 
     // console.log("availables", this.stack);
@@ -147,6 +151,17 @@ class Generator {
     return res;
   }
 
+  getEmpty() {
+    return {
+      name: "empty",
+      type: "empty",
+      background: "#414141",
+      discovered: false,
+      available: false,
+      completed: false,
+    };
+  }
+
   init() {
     this.generateStack();
     // console.log("potions", JSON.stringify(this.cached));
@@ -154,10 +169,11 @@ class Generator {
 }
 
 const generators = {
+  GeneratorAPI: new Generator(),
   ItemAPI: new Generator("items"),
   PillAPI: new Generator("pills"),
   FightAPI: new Generator("fight"),
   PotionAPI: new Generator("potions"),
-}
+};
 
 export default generators;

@@ -6,6 +6,7 @@ import Potion from "./c.Tile.Potion";
 import Pill from "./c.Tile.Pill";
 import Shop from "./c.Tile.Shop";
 import Void from "./c.Tile.Void";
+import Empty from "./c.Tile.Empty";
 
 const DynamicCard = ({ tile, ...rest }) => {
   switch (tile.type) {
@@ -25,20 +26,16 @@ const DynamicCard = ({ tile, ...rest }) => {
       return <Potion tile={tile} {...rest} />;
     case "void":
       return <Void tile={tile} {...rest} />;
+    case "empty":
+      return <Empty tile={tile} {...rest} />;
     default:
-      // return <>{JSON.stringify({ type, ...rest })}</>;
+      console.error("nothing generated for", { tile, ...rest });
       return <></>;
   }
 };
 
 const DungeonCard = ({ tile, x, y, ...rest }) => {
-  return (
-    <DynamicCard
-      tile={tile}
-      data={tile.data}
-      {...rest}
-    />
-  );
+  return <DynamicCard tile={tile} data={tile.data} {...rest} />;
 };
 
-export default DungeonCard
+export default DungeonCard;

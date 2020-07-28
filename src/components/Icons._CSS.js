@@ -6,5 +6,6 @@ export const IconCSS = styled("div")`
 
   svg {
     display: block;
+    fill: white;
   }
 `;
