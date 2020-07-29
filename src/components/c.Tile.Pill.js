@@ -1,7 +1,7 @@
 import React from "react";
 import { GameContext } from "../contexts/Game";
 import BaseTile from "./c.Tile";
-import { QuestIcon } from "./Icons";
+
 import EggA0 from "../assets/items/EggA0.png";
 import EggA1 from "../assets/items/EggA1.png";
 import EggA2 from "../assets/items/EggA2.png";

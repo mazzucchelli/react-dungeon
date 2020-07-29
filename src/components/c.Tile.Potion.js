@@ -15,7 +15,7 @@ const Potion = ({ data, tile, ...rest }) => {
     y: tile.coords.split("-")[1].trim() * 1,
   };
 
-  React.useEffect(() => {
+  const actionsList = React.useCallback(() => {
     const res = [];
     for (const [key, value] of Object.entries(data.actions[0].payload)) {
       res.push({
@@ -23,15 +23,20 @@ const Potion = ({ data, tile, ...rest }) => {
         value,
       });
     }
-    setEffects(res);
-  }, []);
+    return res;
+  }, [data.actions]);
+
+  React.useEffect(() => {
+    const list = actionsList();
+    setEffects(list);
+  }, [actionsList]);
 
   const handleClick = () => {
     if (!available) return;
+
     data.actions.forEach((action) => {
       handleAction(action);
     });
-
     dispatch({ type: "player-move", payload: coords });
   };
 

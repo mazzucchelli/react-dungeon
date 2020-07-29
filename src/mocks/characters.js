@@ -1,6 +1,10 @@
+import MarioAvatar from "../assets/characters/Background/con1.png";
+import MarioneAvatar from "../assets/characters/Background/con2.png";
+
 export const allCharacters = [
   {
     name: "mario",
+    avatar: MarioAvatar,
     stats: {
       HP: 30,
       maxHP: 30,
@@ -15,6 +19,7 @@ export const allCharacters = [
   },
   {
     name: "marione",
+    avatar: MarioneAvatar,
     stats: {
       HP: 20,
       maxHP: 20,

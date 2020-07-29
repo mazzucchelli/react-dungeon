@@ -1,18 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { allCharacters } from "../mocks/characters";
 
-import { GameContext, createDungeoun } from "../contexts/Game";
+import { GameContext } from "../contexts/Game";
 
 export default function Lobby() {
   const { game, dispatch } = useContext(GameContext);
-
-  useEffect(() => {
-    const dungeon = createDungeoun(game.config.currentLevel);
-    dispatch({
-      type: "update-dungeon",
-      payload: dungeon,
-    });
-  }, [])
 
   const selectPG = (index) => {
     const selected = allCharacters[index];

@@ -6,7 +6,7 @@ import levels from "../mocks/levels.json";
 import generators from "./Generator";
 import playerView from "./playerView";
 
-const { ItemAPI, PillAPI, FightAPI, PotionAPI, GeneratorAPI } = generators;
+const { ItemAPI, PillAPI, FightAPI, PotionAPI } = generators;
 
 const findCards = (coords, schema) => {
   const finder = playerView[schema];

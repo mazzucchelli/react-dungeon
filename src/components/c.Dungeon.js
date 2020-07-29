@@ -24,10 +24,14 @@ const DungeonGrid = () => {
   const { config, dungeon } = game;
   const level = levels[config.currentLevel];
 
-  React.useEffect(() => {
+  const scrollBottom = React.useCallback(() => {
     if (!gridRef) return
     setTimeout(() => gridRef.current.scrollTo(0, gridRef.current.scrollHeight), 1);
-  }, [])
+  }, [gridRef])
+
+  React.useEffect(() => {
+    scrollBottom()
+  }, [scrollBottom])
 
   return (
     <DungeonGridCSS size={level.size}>

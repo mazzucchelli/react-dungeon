@@ -16,6 +16,30 @@ export default function reducer(state, action) {
     case "game-over":
       console.log("game-over");
       return INITIAL_STATE;
+    case "item-mode":
+      return {
+        ...state,
+        player: {
+          ...state.player,
+          pendingItem: payload,
+        },
+      };
+    case "dungeon-mode":
+      return {
+        ...state,
+        config: {
+          ...state.config,
+          itemMode: false,
+        },
+        dungeon: state.dungeon.map((row) => {
+          return row.map((tile) => {
+            return {
+              ...tile,
+              target: false,
+            };
+          });
+        }),
+      };
     case "select-player":
       return {
         ...state,
@@ -23,7 +47,7 @@ export default function reducer(state, action) {
         player: payload,
       };
     // DUNGEON
-    case "update-dungeon":
+    case "generate-dungeon":
       return {
         ...state,
         dungeon: payload,
@@ -53,14 +77,6 @@ export default function reducer(state, action) {
         },
       };
     case "player-stats":
-      // const updatedStats = updatePlayerStats(state.player.stats, payload);
-      console.log("player-stats", payload, {
-        ...state,
-        player: {
-          ...state.player,
-          stats: { ...payload },
-        },
-      });
       return {
         ...state,
         player: {

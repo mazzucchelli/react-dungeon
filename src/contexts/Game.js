@@ -18,6 +18,7 @@ export const INITIAL_STATE = {
     currentFloor: 0,
     currentLevel: 0,
     selectedCharacter: false,
+    itemMode: false,
   },
   player: {},
   dungeon: [],
@@ -49,7 +50,7 @@ const initialCardsStats = (grid) => {
   });
 };
 
-export const createDungeoun = (currentLevel) => {
+const createDungeoun = (currentLevel) => {
   const START_INDEX = 2;
   const baseMap = generateDungeon(levels[currentLevel], START_INDEX);
   const mapWithTilesData = generateTiles(baseMap, currentLevel);
@@ -69,7 +70,7 @@ export const GameProvider = ({ children }) => {
   useEffect(() => {
     const dungeon = createDungeoun(game.config.currentLevel);
     dispatch({
-      type: "update-dungeon",
+      type: "generate-dungeon",
       payload: dungeon,
     });
   }, []);
@@ -87,6 +88,17 @@ export const GameProvider = ({ children }) => {
     }
   }, [game.player, game.config]);
 
+  // const createdDungeoun = useCallback(() => createDungeoun(game.config.currentLevel));
+
+  // useEffect(() => {
+  //   const dispatcher = (d) => dispatch({
+  //     type: "generate-dungeon",
+  //     payload: d,
+  //   });
+
+  //   dispatcher(createdDungeoun)
+  // }, [])
+
   // game over effect
   useEffect(() => {
     if (!game.config.started) return;
@@ -96,17 +108,23 @@ export const GameProvider = ({ children }) => {
     let availableTiles = [];
     // TODO: exit loop
     dungeon.forEach((row, i) => {
-      const founds = row.filter((tile) => tile.available && tile.type !== "void")
+      const founds = row.filter(
+        (tile) => tile.available && tile.type !== "void"
+      );
       if (founds.length > 0) {
         availableTiles.push(...founds);
       }
     });
 
-    console.log(game, HPcheck, availableTiles, availableTiles.length, availableTiles.length === 0);
-
     if (HPcheck || availableTiles.length === 0) {
       dispatch({
         type: "game-over",
+      });
+      const createdDungeoun = createDungeoun(game.config.currentLevel);
+
+      dispatch({
+        type: "generate-dungeon",
+        payload: createdDungeoun,
       });
     }
   }, [game.player, game.dungeon]);
@@ -192,7 +210,7 @@ export const GameProvider = ({ children }) => {
     dispatch({ type: "player-move", payload: { x, y } });
   };
 
-  const handleAction = ({ type, payload }) => {
+  const handleAction = ({ type, payload }, item) => {
     switch (type) {
       case "pay-coins":
         if (game.player.coins >= payload) {
@@ -205,6 +223,9 @@ export const GameProvider = ({ children }) => {
         // console.log(updatedPlayerStats);
         dispatch({ type: "player-stats", payload: updatedPlayerStats });
         break;
+      case "inspect":
+        dispatch({ type: "item-mode", payload });
+        break;
       default:
         console.error("Unregistered action", type, payload);
         break;
@@ -215,7 +236,7 @@ export const GameProvider = ({ children }) => {
     const item = game.player.inventory.filter((item) => item.id === itemId)[0];
     // console.log(item);
     item.actions.forEach((action) => {
-      handleAction(action);
+      handleAction(action, item);
     });
 
     const updatedInventory = game.player.inventory.filter(

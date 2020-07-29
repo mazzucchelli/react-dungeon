@@ -24,7 +24,6 @@ const Enemy = ({ data, tile, ...rest }) => {
 
   const fight = () => {
     if (!available) return;
-    const rew = calcolateCoinReward();
 
     const fightData = handleFight(data, coords.x);
     dispatch({ type: "fight", payload: fightData });
@@ -38,19 +37,19 @@ const Enemy = ({ data, tile, ...rest }) => {
     dispatch({ type: "player-move", payload: coords });
   };
 
-  const calcolateCoinReward = () => {
+  const calcolateCoinReward = React.useCallback(() => {
     const p = 0; // TODO handles passives
     const min = stats.shield > 0 ? stats.shield : 1;
     const max = stats.shield + stats.att + p;
     return rollPure(min, max);
-  };
+  }, [stats]);
 
   useEffect(() => {
     if (rewards.coins) {
       const coins = calcolateCoinReward();
       setCoinReward(coins);
     }
-  }, []);
+  }, [calcolateCoinReward, rewards.coins]);
 
   return (
     <BaseTile
@@ -68,7 +67,7 @@ const Enemy = ({ data, tile, ...rest }) => {
               <GIF
                 name={data.sprite}
                 image={`assets/mobs/${data.sprite}.png`}
-                size={46}
+                size={38}
                 frames={frames}
               />
               <div className="stats-container">

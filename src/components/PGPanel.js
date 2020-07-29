@@ -15,6 +15,12 @@ const PGPanel = () => {
 
   return (
     <PGPanelCSS>
+
+      {JSON.stringify(game.player.pendingItem)}
+
+      <div>
+        <img width="100" src={game.player.avatar} />
+      </div>
       <div>
         <img width="20" src={heartIMG} alt="HP icon" /> {game.player.stats.HP}/
         {game.player.stats.maxHP}
