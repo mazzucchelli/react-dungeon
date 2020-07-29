@@ -8,12 +8,16 @@ export default function Lobby() {
 
   const selectPG = (index) => {
     const selected = allCharacters[index];
-    dispatch({ type: "select-player", payload: selected });
+    dispatch({
+      type: "select-player",
+      payload: selected,
+      logs: [`selected characther ${selected.name}`, ...game.logs],
+    });
   };
 
   const startGame = () => {
-    dispatch({ type: "game-start" });
-  }
+    dispatch({ type: "game-start", logs: [`game started`, ...game.logs] });
+  };
 
   return (
     <>
@@ -22,7 +26,12 @@ export default function Lobby() {
           {pg.name}
         </div>
       ))}
-      <button disabled={!game.config.selectedCharacter} onClick={() => startGame()}>start</button>
+      <button
+        disabled={!game.config.selectedCharacter}
+        onClick={() => startGame()}
+      >
+        start
+      </button>
     </>
   );
 }

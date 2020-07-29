@@ -4,7 +4,7 @@ import { GameContext } from "../contexts/Game";
 import chestIMG from "../assets/common_chest.png";
 
 const Chest = ({ data, tile, ...rest }) => {
-  const { game, dispatch } = React.useContext(GameContext);
+  const { game, dispatcher, characterMove } = React.useContext(GameContext);
 
   const coords = {
     x: tile.coords.split("-")[0].trim() * 1,
@@ -13,11 +13,17 @@ const Chest = ({ data, tile, ...rest }) => {
 
   const handleClick = () => {
     if (!tile.available) return;
-    dispatch({
-      type: "player-inventory",
-      payload: [...game.player.inventory, ...data],
-    });
-    dispatch({ type: "player-move", payload: coords });
+
+    characterMove(coords);
+
+    dispatcher(
+      {
+        type: "player-inventory",
+        payload: [...game.player.inventory, ...data],
+      },
+      `${data.map(el => `${el.name}`)}, added to inventory`,
+      data
+    );
   };
 
   return (

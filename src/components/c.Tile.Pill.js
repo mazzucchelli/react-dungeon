@@ -9,7 +9,7 @@ import EggA3 from "../assets/items/EggA3.png";
 import { rollPure } from "../helpers/utilities";
 
 const Pill = ({ data, tile, ...rest }) => {
-  const { handleAction, dispatch } = React.useContext(GameContext);
+  const { handleAction, characterMove } = React.useContext(GameContext);
   const { available, discovered } = tile;
 
   const coords = {
@@ -26,7 +26,7 @@ const Pill = ({ data, tile, ...rest }) => {
       handleAction(action);
     });
 
-    dispatch({ type: "player-move", payload: coords });
+    characterMove(coords);
   };
 
   return (

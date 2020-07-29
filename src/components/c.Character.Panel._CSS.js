@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const PGPanelCSS = styled("div")`
-  position: fixed;
+export const CharacterPanelCSS = styled("div")`
+  /* position: fixed;
   bottom: 0;
   left: 0;
   width: 100vw;
@@ -13,5 +13,5 @@ export const PGPanelCSS = styled("div")`
 
   > div {
     margin-right: 10px;
-  }
+  } */
 `;

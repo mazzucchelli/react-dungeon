@@ -5,7 +5,7 @@ import { GIF } from "./c.GIF";
 import spriteData from "../mocks/spriteData.json";
 
 const Potion = ({ data, tile, ...rest }) => {
-  const { handleAction, dispatch } = React.useContext(GameContext);
+  const { handleAction, characterMove } = React.useContext(GameContext);
   const { available, discovered } = tile;
   const [effects, setEffects] = React.useState([]);
   const { frames } = spriteData[data.sprite];
@@ -37,7 +37,7 @@ const Potion = ({ data, tile, ...rest }) => {
     data.actions.forEach((action) => {
       handleAction(action);
     });
-    dispatch({ type: "player-move", payload: coords });
+    characterMove(coords)
   };
 
   return (

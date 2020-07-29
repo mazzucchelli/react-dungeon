@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useState, useRef } from "react";
-
+import INITIAL_STATE from "./initials";
 import reducer from "./reducer";
 import levels from "../mocks/levels.json";
 import { rollDice } from "../helpers/utilities";
@@ -8,47 +8,11 @@ import {
   generateTiles,
   generateFirstRows,
   generateLastRows,
+  initialCardsStats,
+  mapDungeon,
 } from "../helpers/mapHelpers";
 
 export const GameContext = React.createContext();
-
-export const INITIAL_STATE = {
-  config: {
-    started: false,
-    currentFloor: 0,
-    currentLevel: 0,
-    selectedCharacter: false,
-    itemMode: false,
-  },
-  player: {},
-  dungeon: [],
-  potions: {},
-  items: {},
-  pills: {},
-};
-
-const initialCardsStats = (grid) => {
-  // console.log(grid[0]);
-  return grid.map((row, i) => {
-    if (i === 0) {
-      return row.map((card, i) => {
-        return {
-          ...card,
-          discovered: true,
-          available: true,
-        };
-      });
-    } else {
-      return row;
-      // return row.map((card, i) => {
-      //   return {
-      //     ...card,
-      //     discovered: true,
-      //   };
-      // });
-    }
-  });
-};
 
 const createDungeoun = (currentLevel) => {
   const START_INDEX = 2;
@@ -66,13 +30,21 @@ export const GameProvider = ({ children }) => {
   const [prevFloor, setPrevFloor] = useState(0);
   const gridRef = useRef(null);
 
+  const dispatcher = (data, ...rest) => {
+    console.log("👀", ...rest);
+    dispatch(data);
+  };
+
   // mount component effect
   useEffect(() => {
     const dungeon = createDungeoun(game.config.currentLevel);
-    dispatch({
-      type: "generate-dungeon",
-      payload: dungeon,
-    });
+    dispatcher(
+      {
+        type: "update-dungeon",
+        payload: dungeon,
+      },
+      "update-dungeon"
+    );
   }, []);
 
   // hanndle scroll position effect
@@ -88,17 +60,6 @@ export const GameProvider = ({ children }) => {
     }
   }, [game.player, game.config]);
 
-  // const createdDungeoun = useCallback(() => createDungeoun(game.config.currentLevel));
-
-  // useEffect(() => {
-  //   const dispatcher = (d) => dispatch({
-  //     type: "generate-dungeon",
-  //     payload: d,
-  //   });
-
-  //   dispatcher(createdDungeoun)
-  // }, [])
-
   // game over effect
   useEffect(() => {
     if (!game.config.started) return;
@@ -106,6 +67,7 @@ export const GameProvider = ({ children }) => {
     const { player, dungeon } = game;
     const HPcheck = player.stats.HP <= 0;
     let availableTiles = [];
+
     // TODO: exit loop
     dungeon.forEach((row, i) => {
       const founds = row.filter(
@@ -117,15 +79,22 @@ export const GameProvider = ({ children }) => {
     });
 
     if (HPcheck || availableTiles.length === 0) {
-      dispatch({
-        type: "game-over",
-      });
+      dispatcher(
+        {
+          type: "game-over",
+        },
+        "game-over"
+      );
       const createdDungeoun = createDungeoun(game.config.currentLevel);
 
-      dispatch({
-        type: "generate-dungeon",
-        payload: createdDungeoun,
-      });
+      dispatcher(
+        "update-dungeon",
+        {
+          type: "update-dungeon",
+          payload: createdDungeoun,
+        },
+        "update-dungeon"
+      );
     }
   }, [game.player, game.dungeon]);
 
@@ -206,8 +175,29 @@ export const GameProvider = ({ children }) => {
     };
   };
 
-  const movePlayer = ({ x, y }) => {
-    dispatch({ type: "player-move", payload: { x, y } });
+  const characterMove = ({ x, y }) => {
+    dispatcher(
+      {
+        type: "player-move",
+        payload: { x, y },
+      },
+      `moved to x:${x}, y:${y}`
+    );
+  };
+
+  const getTargetTiles = (type) => {
+    switch (type) {
+      case "undiscovered":
+        return mapDungeon(game.dungeon, null, (tile) => {
+          if (!tile.discovered) {
+            return { ...tile, target: true };
+          } else {
+            return tile;
+          }
+        });
+      default:
+        break;
+    }
   };
 
   const handleAction = ({ type, payload }, item) => {
@@ -215,16 +205,51 @@ export const GameProvider = ({ children }) => {
       case "pay-coins":
         if (game.player.coins >= payload) {
           const updatedCoins = game.player.coins - payload;
-          dispatch({ type: "player-coins", payload: updatedCoins });
+          dispatcher(
+            {
+              type: "player-coins",
+              payload: updatedCoins,
+            },
+            "update coins",
+            payload,
+            updatedCoins
+          );
         }
         break;
       case "player-stats":
         const updatedPlayerStats = updatePlayerStats(payload);
         // console.log(updatedPlayerStats);
-        dispatch({ type: "player-stats", payload: updatedPlayerStats });
+        dispatcher(
+          {
+            type: "player-stats",
+            payload: updatedPlayerStats,
+          },
+          "update stats",
+          payload,
+          updatedPlayerStats
+        );
         break;
       case "inspect":
-        dispatch({ type: "item-mode", payload });
+        const dungeonWithTargets = getTargetTiles(payload.target[0]);
+        dispatcher(
+          {
+            type: "update-dungeon",
+            payload: dungeonWithTargets,
+          },
+          `update tiles ${payload.target}`,
+          dungeonWithTargets
+        );
+        dispatcher(
+          {
+            type: "item-mode",
+            payload: {
+              isItemMode: true,
+              data: payload
+            },
+          },
+          `trigger item mode`,
+          payload
+        );
         break;
       default:
         console.error("Unregistered action", type, payload);
@@ -242,7 +267,15 @@ export const GameProvider = ({ children }) => {
     const updatedInventory = game.player.inventory.filter(
       (item) => item.id !== itemId
     );
-    dispatch({ type: "player-inventory", payload: updatedInventory });
+
+    dispatcher(
+      {
+        type: "player-inventory",
+        payload: updatedInventory,
+      },
+      "update inventory",
+      updatedInventory
+    );
   };
 
   return (
@@ -250,10 +283,11 @@ export const GameProvider = ({ children }) => {
       value={{
         game,
         dispatch,
+        dispatcher,
         handleFight,
         updatePlayerStats,
         gridRef,
-        movePlayer,
+        characterMove,
         handleAction,
         consume,
       }}

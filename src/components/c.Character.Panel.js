@@ -1,22 +1,20 @@
 import React from "react";
-import { PGPanelCSS } from "./PGPanel._CSS";
+import { CharacterPanelCSS } from "./c.Character.Panel._CSS";
 import { GameContext } from "../contexts/Game";
-// import Inventory from "./inventory";
+import Inventory from "./c.Character.Inventory";
+// import Logs from "./c.Logs";
 
 import heartIMG from "../assets/stat_heart.png";
 import shieldIMG from "../assets/stat_shield.png";
 import swordIMG from "../assets/stat_sword.png";
 import coinIMG from "../assets/stat_coin.png";
 
-// import { GIF } from "./c.GIF";
-
-const PGPanel = () => {
+const CharacterPanel = () => {
   const { game, consume } = React.useContext(GameContext);
 
   return (
-    <PGPanelCSS>
-
-      {JSON.stringify(game.player.pendingItem)}
+    <CharacterPanelCSS>
+      {JSON.stringify(game.player.pendingAction)}
 
       <div>
         <img width="100" src={game.player.avatar} />
@@ -39,15 +37,11 @@ const PGPanel = () => {
       </div>
       <div>Floor: {game.config.currentFloor}</div>
       <div>
-        INV:{" "}
-        {game.player.inventory.map((el) => (
-          <span key={el.id} onClick={() => consume(el.id)}>
-            {el.name}
-          </span>
-        ))}
+        <Inventory />
+        {/* <Logs /> */}
       </div>
-    </PGPanelCSS>
+    </CharacterPanelCSS>
   );
 };
 
-export default PGPanel;
+export default CharacterPanel;

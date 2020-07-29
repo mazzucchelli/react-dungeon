@@ -231,3 +231,51 @@ export const generateTilesByRow = (dungeonRow, lvl) => {
     }
   });
 };
+
+export const initialCardsStats = (grid) => {
+  // console.log(grid[0]);
+  return grid.map((row, i) => {
+    if (i === 0) {
+      return row.map((card, i) => {
+        return {
+          ...card,
+          discovered: true,
+          available: true,
+        };
+      });
+    } else {
+      return row;
+      // return row.map((card, i) => {
+      //   return {
+      //     ...card,
+      //     discovered: true,
+      //   };
+      // });
+    }
+  });
+};
+
+export const mapDungeon = (dungeon, coords, modifier) => {
+  if (coords) {
+    const { x, y } = coords;
+    return dungeon.map((row, i) => {
+      if (i === x) {
+        return row.map((tile, j) => {
+          if (j === y) {
+            return modifier(tile);
+          } else {
+            return tile;
+          }
+        });
+      } else {
+        return row;
+      }
+    });
+  } else {
+    return dungeon.map((row) => {
+      return row.map((tile) => {
+        return modifier(tile);
+      });
+    });
+  }
+};

@@ -1,8 +1,10 @@
 import { handleCardStatus } from "../helpers/mapHelpers";
-import { INITIAL_STATE } from "./Game";
+import INITIAL_STATE from "./initials";
 
 export default function reducer(state, action) {
-  const { payload } = action;
+  const { payload, logs } = action;
+  // if (logs) console.log(logs[0]);
+
   switch (action.type) {
     // BASE
     case "game-start":
@@ -14,31 +16,20 @@ export default function reducer(state, action) {
         },
       };
     case "game-over":
-      console.log("game-over");
       return INITIAL_STATE;
     case "item-mode":
       return {
         ...state,
-        player: {
-          ...state.player,
-          pendingItem: payload,
-        },
-      };
-    case "dungeon-mode":
-      return {
-        ...state,
         config: {
           ...state.config,
-          itemMode: false,
+          itemMode: payload.isItemMode,
         },
-        dungeon: state.dungeon.map((row) => {
-          return row.map((tile) => {
-            return {
-              ...tile,
-              target: false,
-            };
-          });
-        }),
+        player: payload.isItemMode
+          ? {
+              ...state.player,
+              pendingAction: payload.data,
+            }
+          : { ...state.player, pendingAction: {} },
       };
     case "select-player":
       return {
@@ -47,7 +38,7 @@ export default function reducer(state, action) {
         player: payload,
       };
     // DUNGEON
-    case "generate-dungeon":
+    case "update-dungeon":
       return {
         ...state,
         dungeon: payload,
@@ -104,7 +95,11 @@ export default function reducer(state, action) {
       console.log('enemy-stats":, nothing happend');
       return { ...state };
     case "fight":
-      return { ...state, dungeon: payload.dungeon, player: payload.player };
+      return {
+        ...state,
+        dungeon: payload.dungeon,
+        player: payload.player,
+      };
 
     // TRIGGERS
     case "update-counters":
@@ -112,7 +107,13 @@ export default function reducer(state, action) {
       return { ...state };
 
     default:
-      console.log("default, nothing happend", state, JSON.stringify(action));
+      console.log(
+        "default, nothing happend",
+        "state",
+        state,
+        "action",
+        JSON.stringify(action)
+      );
       return { ...state };
   }
 }

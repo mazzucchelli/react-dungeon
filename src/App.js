@@ -4,7 +4,7 @@ import "./styles.css";
 
 import { GameContext, GameProvider } from "./contexts/Game";
 import Dungeon from "./components/c.Dungeon";
-import PGPanel from "./components/PGPanel";
+import CharacterPanel from "./components/c.Character.Panel";
 import Lobby from "./components/c.Lobby";
 
 const View = () => {
@@ -17,7 +17,7 @@ const View = () => {
           <Dungeon />
         </Cell>
         <Cell area="side">
-          <PGPanel />
+          <CharacterPanel />
         </Cell>
       </Grid>
     </>

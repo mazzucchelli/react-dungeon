@@ -11,7 +11,9 @@ import swordIMG from "../assets/stat_sword.png";
 import coinIMG from "../assets/stat_coin.png";
 
 const Enemy = ({ data, tile, ...rest }) => {
-  const { game, dispatch, handleFight } = useContext(GameContext);
+  const { game, dispatcher, handleFight, characterMove } = useContext(
+    GameContext
+  );
   const { available, discovered } = tile;
   const { stats, rewards } = data;
   const { frames } = spriteData[data.sprite];
@@ -26,15 +28,31 @@ const Enemy = ({ data, tile, ...rest }) => {
     if (!available) return;
 
     const fightData = handleFight(data, coords.x);
-    dispatch({ type: "fight", payload: fightData });
+    dispatcher(
+      {
+        type: "fight",
+        payload: fightData,
+      },
+      "fight",
+      fightData
+    );
   };
 
   const getRewards = () => {
     if (!available) return;
 
     const updatedCoins = game.player.coins + coinsReward;
-    dispatch({ type: "player-coins", payload: updatedCoins });
-    dispatch({ type: "player-move", payload: coords });
+    dispatcher(
+      {
+        type: "player-coins",
+        payload: updatedCoins,
+      },
+      "add coins",
+      coinsReward,
+      "tot",
+      updatedCoins
+    );
+    characterMove(coords);
   };
 
   const calcolateCoinReward = React.useCallback(() => {

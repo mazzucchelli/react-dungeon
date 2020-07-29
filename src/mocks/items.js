@@ -1,4 +1,4 @@
-import reducer from "../contexts/reducer";
+import { mapDungeon } from "../helpers/mapHelpers";
 
 export const allItems = [
   {
@@ -15,24 +15,10 @@ export const allItems = [
         payload: {
           target: ["undiscovered"],
           dispatch: "update-dungeon",
-          getPayload: (dungeon, { x, y }) => {
-            return dungeon.map((row, i) => {
-              if (i === x) {
-                return row.map((tile, j) => {
-                  if (j === y) {
-                    return {
-                      ...tile,
-                      discovered: true,
-                    };
-                  } else {
-                    return tile;
-                  }
-                });
-              } else {
-                return row;
-              }
-            });
-          },
+          getPayload: (game, { x, y }) =>
+            mapDungeon(game.dungeon, { x, y }, (tile) => {
+              return { ...tile, discovered: true };
+            }),
         },
       },
     ],

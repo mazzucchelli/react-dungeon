@@ -1,5 +1,7 @@
 import React from "react";
-// import { GameContext } from "../contexts/Game";
+
+import { GameContext } from "../contexts/Game";
+import Character from "./c.Character.Tile"
 import Chest from "./c.Tile.Chest";
 import Enemy from "./c.Tile.Enemy";
 import Potion from "./c.Tile.Potion";
@@ -35,6 +37,14 @@ const DynamicCard = ({ tile, ...rest }) => {
 };
 
 const DungeonCard = ({ tile, x, y, ...rest }) => {
+  const { game } = React.useContext(GameContext);
+  const { player } = game;
+
+  // if player position show character tile
+  if (player.position && x === player.position[0] && y === player.position[1])
+    return <Character />;
+
+  // else handle tile data
   return <DynamicCard tile={tile} data={tile.data} {...rest} />;
 };
 
