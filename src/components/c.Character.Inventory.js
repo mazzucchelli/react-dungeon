@@ -1,22 +1,26 @@
 import React from "react";
-// import { CharacterInventoryCSS } from "./c.Character.Inventory._CSS";
+import { InventoryCSS, InventoryItemCSS } from "./c.Character.Inventory._CSS";
+import { GIF } from "./c.GIF";
 import { GameContext } from "../contexts/Game";
 
-const CharacterInventory = ({data}) => {
+const CharacterInventory = ({ data }) => {
   const { game, consume } = React.useContext(GameContext);
   const { inventory } = game.player;
 
   return (
-    // <CharacterInventoryCSS>
-      <div>
-        INV:{" "}
-        {inventory.map((el) => (
-          <span key={el.id} onClick={() => consume(el.id)}>
-            {el.name}
-          </span>
-        ))}
-      </div>
-    // </CharacterInventoryCSS>
+    <InventoryCSS>
+      INV:{" "}
+      {inventory.map((el) => (
+        <InventoryItemCSS key={el.id} onClick={() => consume(el.id)}>
+          <GIF
+            name={el.name}
+            image={`assets/items/${el.image}.png`}
+            size={22}
+          />
+          {el.name}
+        </InventoryItemCSS>
+      ))}
+    </InventoryCSS>
   );
 };
 

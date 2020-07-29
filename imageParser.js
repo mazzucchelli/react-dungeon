@@ -2,7 +2,7 @@ const fs = require("fs");
 var sizeOf = require("image-size");
 
 const baseDir = "./public/assets";
-const dirs = ["mobs", "potions"];
+const dirs = ["mobs", "potions", "items"];
 
 function getExtension(filename) {
   var i = filename.lastIndexOf(".");

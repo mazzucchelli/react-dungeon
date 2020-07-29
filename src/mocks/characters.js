@@ -6,7 +6,7 @@ export const allCharacters = [
     name: "mario",
     avatar: MarioAvatar,
     stats: {
-      HP: 30,
+      HP: 1,
       maxHP: 30,
       att: 3,
       shield: 5,

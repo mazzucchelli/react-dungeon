@@ -2,8 +2,7 @@ import { handleCardStatus } from "../helpers/mapHelpers";
 import INITIAL_STATE from "./initials";
 
 export default function reducer(state, action) {
-  const { payload, logs } = action;
-  // if (logs) console.log(logs[0]);
+  const { payload } = action;
 
   switch (action.type) {
     // BASE

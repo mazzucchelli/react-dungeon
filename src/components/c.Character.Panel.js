@@ -10,29 +10,27 @@ import swordIMG from "../assets/stat_sword.png";
 import coinIMG from "../assets/stat_coin.png";
 
 const CharacterPanel = () => {
-  const { game, consume } = React.useContext(GameContext);
+  const { game } = React.useContext(GameContext);
 
   return (
     <CharacterPanelCSS>
-      {JSON.stringify(game.player.pendingAction)}
-
       <div>
-        <img width="100" src={game.player.avatar} />
+        <img width="100" src={game.player.avatar} alt="character avatar" />
       </div>
       <div>
         <img width="20" src={heartIMG} alt="HP icon" /> {game.player.stats.HP}/
         {game.player.stats.maxHP}
       </div>
       <div>
-        <img width="20" src={swordIMG} alt="HP icon" />
+        <img width="20" src={swordIMG} alt="Damage icon" />
         {game.player.stats.att}
       </div>
       <div>
-        <img width="20" src={shieldIMG} alt="HP icon" />
+        <img width="20" src={shieldIMG} alt="Shield icon" />
         {game.player.stats.shield}
       </div>
       <div>
-        <img width="20" src={coinIMG} alt="HP icon" />
+        <img width="20" src={coinIMG} alt="Coins icon" />
         {game.player.coins}
       </div>
       <div>Floor: {game.config.currentFloor}</div>

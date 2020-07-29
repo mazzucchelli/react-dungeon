@@ -3,7 +3,7 @@ import BaseTile from "./c.Tile";
 import { GameContext } from "../contexts/Game";
 
 const Empty = ({ tile, ...rest }) => {
-  const { game, dispatch, characterMove } = React.useContext(GameContext);
+  const { characterMove } = React.useContext(GameContext);
 
   const coords = {
     x: tile.coords.split("-")[0].trim() * 1,
@@ -16,11 +16,7 @@ const Empty = ({ tile, ...rest }) => {
   };
 
   return (
-    <BaseTile onClick={() => handleClick()} tile={tile} {...rest}>
-      {/* <span className="coords">
-        {coords.x} - {coords.y}
-      </span> */}
-    </BaseTile>
+    <BaseTile onClick={() => handleClick()} tile={tile} {...rest} />
   );
 };
 

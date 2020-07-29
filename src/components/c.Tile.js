@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useContext } from "react";
 import classNames from "classnames";
 
 import { GameContext } from "../contexts/Game";
@@ -6,7 +6,7 @@ import { DungeonTileCSS } from "./c.Dungeon.Tile._CSS";
 
 const BaseTile = ({ onClick, tile, children, ...rest }) => {
   // const [itemMode, setItemMode] = React.useState({});
-  const { game, dispatcher } = React.useContext(GameContext);
+  const { game, dispatcher } = useContext(GameContext);
   const { itemMode } = game.config;
 
   const coords = {
@@ -16,13 +16,13 @@ const BaseTile = ({ onClick, tile, children, ...rest }) => {
 
   const clickHandler = () => {
     if (itemMode) {
-      console.log(game.player, game.player.pendingAction);
+      // console.log(game.player, game.player.pendingAction);
       dispatcher(
         {
-          type: game.player.pendingAction.dispatch,
+          type: game.player.pendingAction.event,
           payload: game.player.pendingAction.getPayload(game, coords),
         },
-        game.player.pendingAction.dispatch,
+        game.player.pendingAction.event,
         game.player.pendingAction.getPayload(game, coords)
       );
       dispatcher(

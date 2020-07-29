@@ -1,9 +1,4 @@
 {
-    "AirA copy": {
-        "width": 80,
-        "height": 16,
-        "frames": 5
-    },
     "AirA": {
         "width": 80,
         "height": 16,
@@ -1888,5 +1883,325 @@
         "width": 96,
         "height": 16,
         "frames": 6
+    },
+    "LargePotionBlue": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "LargePotionBrown": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "LargePotionCyan": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "LargePotionEmpty": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "LargePotionGreen": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "LargePotionGrey": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "LargePotionMagenta": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "LargePotionMulticolor": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "LargePotionOrange": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "LargePotionPink": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "LargePotionPurple": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "LargePotionRed": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "LargePotionWhite": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "LargePotionYellow": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "MediumPotionBlue": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "MediumPotionBrown": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "MediumPotionCyan": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "MediumPotionEmpty": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "MediumPotionGreen": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "MediumPotionGrey": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "MediumPotionMagenta": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "MediumPotionMulticolor": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "MediumPotionOrange": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "MediumPotionPink": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "MediumPotionPurple": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "MediumPotionRed": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "MediumPotionWhite": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "MediumPotionYellow": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "PotionBlue": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "PotionBrown": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "PotionCyan": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "PotionEmpty": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "PotionGreen": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "PotionGrey": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "PotionMagenta": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "PotionMulticolor": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "PotionOrange": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "PotionPink": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "PotionPurple": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "PotionRed": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "PotionWhite": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "PotionYellow": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "PyramidPotion0": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "PyramidPotion1": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "PyramidPotion2": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "PyramidPotion3": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "PyramidPotion4": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "ScrollDetect": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "ScrollSealed": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "SodaBlue": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "SodaCyan": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "SodaEmpty": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "SodaGreen": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "SodaGrey": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "SodaMegenta": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "SodaOrange": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "SodaRed": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "SodaWhite": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "SodaYellow": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "TallBluePotion": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "TallGreenPotion": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "TallRedPotion": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "TinyRedPotion": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
+    },
+    "TinyWhitePotion": {
+        "width": 16,
+        "height": 16,
+        "frames": 1
     }
 }

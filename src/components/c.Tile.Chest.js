@@ -31,7 +31,7 @@ const Chest = ({ data, tile, ...rest }) => {
       {tile.discovered ? (
         <>
           <div></div>
-          <img width="48" src={chestIMG} />
+          <img width="48" src={chestIMG} alt="Chest tile" />
           <div></div>
         </>
       ) : (

@@ -9,7 +9,8 @@ import {
   generateFirstRows,
   generateLastRows,
   initialCardsStats,
-  mapDungeon,
+  // mapDungeonGrid,
+  getTargetTiles,
 } from "../helpers/mapHelpers";
 
 export const GameContext = React.createContext();
@@ -26,28 +27,34 @@ const createDungeoun = (currentLevel) => {
 };
 
 export const GameProvider = ({ children }) => {
+  /**
+   * game global state
+   */
   const [game, dispatch] = useReducer(reducer, INITIAL_STATE);
+
+  /**
+   * prevFloor value, used by scroll effet to move "camera"
+   */
   const [prevFloor, setPrevFloor] = useState(0);
+
+  /**
+   * Reference of grid container, used by scroll effet to move "camera"
+   */
   const gridRef = useRef(null);
 
+  /**
+   *
+   * @param {object} data dispatch params { type, payload } to invoke
+   * @param  {...any} rest console.log everything else
+   */
   const dispatcher = (data, ...rest) => {
     console.log("👀", ...rest);
     dispatch(data);
   };
 
-  // mount component effect
-  useEffect(() => {
-    const dungeon = createDungeoun(game.config.currentLevel);
-    dispatcher(
-      {
-        type: "update-dungeon",
-        payload: dungeon,
-      },
-      "update-dungeon"
-    );
-  }, []);
-
-  // hanndle scroll position effect
+  /**
+   * update scroll on player move up (TODO: to improve)
+   */
   useEffect(() => {
     const { position } = game.player;
     const { currentFloor } = game.config;
@@ -60,7 +67,24 @@ export const GameProvider = ({ children }) => {
     }
   }, [game.player, game.config]);
 
-  // game over effect
+  /**
+   * mount component effect
+   */
+  useEffect(() => {
+    const dungeon = createDungeoun(game.config.currentLevel);
+    dispatcher(
+      {
+        type: "update-dungeon",
+        payload: dungeon,
+      },
+      "update-dungeon"
+    );
+  }, []);
+
+  /**
+   * Game over effect
+   * if HP === 0 || (no tiles availables && (TODO) no items that can create a new tile)
+   */
   useEffect(() => {
     if (!game.config.started) return;
 
@@ -98,32 +122,14 @@ export const GameProvider = ({ children }) => {
     }
   }, [game.player, game.dungeon]);
 
-  useEffect(() => {}, [game]);
-
-  const updatePlayerStats = (params) => {
-    const res = game.player.stats;
-    for (const [key, value] of Object.entries(params)) {
-      switch (key) {
-        case "HP":
-          const HPRes = (res[key] += value);
-          res[key] = HPRes < res.maxHP ? HPRes : res.maxHP;
-          break;
-        case "maxHP":
-          res["HP"] += value;
-          res["maxHP"] += value;
-          break;
-        case "shield":
-          const shieldRes = (res[key] += value);
-          res[key] = shieldRes < 0 ? 0 : shieldRes;
-          break;
-        default:
-          res[key] += value;
-          break;
-      }
-    }
-    return res;
-  };
-
+  /**
+   * Update dungeon and player with fight result
+   *
+   * @param {Object} data enemy data (tile.data)
+   * @param {Number} x enemy row
+   *
+   * @return {Object} { dungeon: updatedDungeon, player: updatedPlayer };
+   */
   const handleFight = (data, x) => {
     const { dungeon, player } = game;
     const searchedRow = dungeon.filter((row, i) => i === x)[0];
@@ -175,6 +181,13 @@ export const GameProvider = ({ children }) => {
     };
   };
 
+  /**
+   * <dispatcher>
+   *
+   * Move character to coords
+   *
+   * @param {obj} coords { x, y }
+   */
   const characterMove = ({ x, y }) => {
     dispatcher(
       {
@@ -185,58 +198,66 @@ export const GameProvider = ({ children }) => {
     );
   };
 
-  const getTargetTiles = (type) => {
+  /**
+   * <dispatcher>
+   *
+   * dispatch consumable action
+   *
+   * params: {
+   *   event<String>: dispatcher event
+   *   target<String>: getTargetTiles() cases
+   *   getPayload<Function>: return dispatcher payload
+   * }
+   *
+   * @param {Object} args { type: "instant | active", params: (see above) }
+   */
+  const handleAction = ({ type, params }) => {
     switch (type) {
-      case "undiscovered":
-        return mapDungeon(game.dungeon, null, (tile) => {
-          if (!tile.discovered) {
-            return { ...tile, target: true };
-          } else {
-            return tile;
-          }
-        });
-      default:
-        break;
-    }
-  };
-
-  const handleAction = ({ type, payload }, item) => {
-    switch (type) {
-      case "pay-coins":
-        if (game.player.coins >= payload) {
-          const updatedCoins = game.player.coins - payload;
-          dispatcher(
-            {
-              type: "player-coins",
-              payload: updatedCoins,
-            },
-            "update coins",
-            payload,
-            updatedCoins
-          );
-        }
-        break;
-      case "player-stats":
-        const updatedPlayerStats = updatePlayerStats(payload);
-        // console.log(updatedPlayerStats);
+      // case "pay-coins":
+      //   if (game.player.coins >= payload) {
+      //     const updatedCoins = game.player.coins - payload;
+      //     dispatcher(
+      //       {
+      //         type: "player-coins",
+      //         payload: updatedCoins,
+      //       },
+      //       "update coins",
+      //       payload,
+      //       updatedCoins
+      //     );
+      //   }
+      //   break;
+      // case "player-stats":
+      //   const updatedPlayerStats = updatePlayerStats(payload);
+      //   // console.log(updatedPlayerStats);
+      //   dispatcher(
+      //     {
+      //       type: "player-stats",
+      //       payload: updatedPlayerStats,
+      //     },
+      //     "update stats",
+      //     payload,
+      //     updatedPlayerStats
+      //   );
+      //   break;
+      case "instant":
         dispatcher(
           {
-            type: "player-stats",
-            payload: updatedPlayerStats,
+            type: params.event,
+            payload: params.getPayload(game),
           },
-          "update stats",
-          payload,
-          updatedPlayerStats
+          `used "instant" item`,
+          params
         );
         break;
-      case "inspect":
-        const dungeonWithTargets = getTargetTiles(payload.target[0]);
+      case "active":
+        const dungeonWithTargets = getTargetTiles(params.target[0], game);
         dispatcher(
           {
             type: "update-dungeon",
             payload: dungeonWithTargets,
           },
-          `update tiles ${payload.target}`,
+          `update tiles ${params.target[0]}`,
           dungeonWithTargets
         );
         dispatcher(
@@ -244,24 +265,31 @@ export const GameProvider = ({ children }) => {
             type: "item-mode",
             payload: {
               isItemMode: true,
-              data: payload
+              data: params,
             },
           },
           `trigger item mode`,
-          payload
+          params
         );
         break;
       default:
-        console.error("Unregistered action", type, payload);
+        console.error("Unregistered action", type, params);
         break;
     }
   };
 
+  /**
+   * <dispatcher>
+   *
+   * invoke consumable actions
+   *
+   * @param {String} itemId generated item ID (tile.data.id)
+   */
   const consume = (itemId) => {
     const item = game.player.inventory.filter((item) => item.id === itemId)[0];
     // console.log(item);
     item.actions.forEach((action) => {
-      handleAction(action, item);
+      handleAction(action);
     });
 
     const updatedInventory = game.player.inventory.filter(
@@ -285,7 +313,6 @@ export const GameProvider = ({ children }) => {
         dispatch,
         dispatcher,
         handleFight,
-        updatePlayerStats,
         gridRef,
         characterMove,
         handleAction,

@@ -5,7 +5,7 @@ export const GIF = styled("div")`
   height: ${({ size }) => `${size || 16}px`};
   background-image: ${({ image }) => `url(${image})`};
   background-size: cover;
-  animation: ${({ name, frames, duration }) =>
+  animation: ${({ name, frames }) =>
     `play-${name} ${0.2 * frames}s steps(${frames}) infinite`};
 
     ${({ name, frames, size }) => `

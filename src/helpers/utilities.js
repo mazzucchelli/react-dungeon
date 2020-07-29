@@ -1,3 +1,10 @@
+/**
+ * Array shuffle method
+ *
+ * @param {Array} array array to shuffle
+ *
+ * @return {Array} suffled array
+ */
 export const shuffle = (array) => {
   var currentIndex = array.length,
     temporaryValue,
@@ -18,13 +25,27 @@ export const shuffle = (array) => {
   return array;
 };
 
+/**
+ * Get random value between 2 numbers
+ *
+ * @param {Number} min
+ * @param {Number} max
+ *
+ * @return {Number}
+ */
 export const rollPure = (min, max) => {
   // return (min || 0) + Math.floor(Math.random() * ((max || 20) - (min || 0)));
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
+/**
+ * return true if check >= random requested number
+ *
+ * @param {Number} check minimun value
+ * @param {Number} min
+ * @param {Number} max
+ */
 export const rollDice = (check, min, max) => {
-  const roll =
-    (min || 1) + Math.floor(Math.random() * ((max || 20) - (min || 1) + 1));
+  const roll = rollPure(min || 1, max || 20)
   return roll >= check;
 };

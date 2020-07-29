@@ -255,7 +255,16 @@ export const initialCardsStats = (grid) => {
   });
 };
 
-export const mapDungeon = (dungeon, coords, modifier) => {
+/**
+ * Parse dungeon and apply changes
+ *
+ * @param {Array} dungeon GameContext.dungeon
+ * @param {Object} coords? tile coordinates { x, y } to modify, if null all tiles will be modified
+ * @param {Function} modifier modifier function (tile) => {{ ...tile, <your-stuff>}}
+ *
+ * @return {Array} GameContext.dungeon
+ */
+export const mapDungeonGrid = (dungeon, coords, modifier) => {
   if (coords) {
     const { x, y } = coords;
     return dungeon.map((row, i) => {
@@ -277,5 +286,28 @@ export const mapDungeon = (dungeon, coords, modifier) => {
         return modifier(tile);
       });
     });
+  }
+};
+
+/**
+ * Used for "active" item mode, eneble [...tile].target: true
+ *
+ * @param {string} type undiscovered
+ * @param {Object} ctx GameContext.game
+ *
+ * @return {Array} GameContext.game.dungeon
+ */
+export const getTargetTiles = (type, ctx) => {
+  switch (type) {
+    case "undiscovered":
+      return mapDungeonGrid(ctx.dungeon, null, (tile) => {
+        if (!tile.discovered) {
+          return { ...tile, target: true };
+        } else {
+          return tile;
+        }
+      });
+    default:
+      break;
   }
 };

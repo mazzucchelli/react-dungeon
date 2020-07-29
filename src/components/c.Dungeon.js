@@ -24,6 +24,7 @@ const DungeonGrid = () => {
   const { config, dungeon } = game;
   const level = levels[config.currentLevel];
 
+  // ugly way to scroll bottom at start game
   const scrollBottom = React.useCallback(() => {
     if (!gridRef) return
     setTimeout(() => gridRef.current.scrollTo(0, gridRef.current.scrollHeight), 1);

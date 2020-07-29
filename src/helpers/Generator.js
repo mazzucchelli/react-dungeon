@@ -26,10 +26,9 @@ class Generator {
     if (mode) this.init();
   }
 
-  updateCounter() {
-    this.counter += 1;
-  }
-
+  /**
+   * append tile data based on current mode
+   */
   handleData(el) {
     // console.log("enter", this.currentMode, el);
     switch (this.currentMode) {
@@ -96,6 +95,9 @@ class Generator {
     }
   }
 
+  /**
+   * create a new stack based on current mode
+   */
   generateStack() {
     // console.log(this.currentMode, "generating new stack");
     this.list.forEach((el) => {
@@ -111,6 +113,9 @@ class Generator {
     // console.log(this.currentMode, "stack", this.stack);
   }
 
+  /**
+   * shuffle stack data
+   */
   shuffleStack() {
     if (!this.stack.length) {
       this.resetStack();
@@ -118,6 +123,9 @@ class Generator {
     this.stack = shuffle(this.stack);
   }
 
+  /**
+   * reset
+   */
   resetStack() {
     this.counter = 0;
     this.stack = [];
@@ -127,6 +135,9 @@ class Generator {
     this.generateStack();
   }
 
+  /**
+   * @return {Object} random item from stack
+   */
   getItem() {
     this.shuffleStack();
     // console.log(this.currentMode, this.stack.length);
@@ -151,6 +162,9 @@ class Generator {
     return res;
   }
 
+  /**
+   * @return {Object} empty tile mock data
+   */
   getEmpty() {
     return {
       name: "empty",
@@ -162,6 +176,10 @@ class Generator {
     };
   }
 
+  /**
+   * generate stack of requested tiles if mode provided
+   * .. else, create the class to invoke common methods like getEmty() or getVoid()
+   */
   init() {
     this.generateStack();
     // console.log("potions", JSON.stringify(this.cached));

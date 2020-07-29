@@ -47,9 +47,10 @@ const Enemy = ({ data, tile, ...rest }) => {
         type: "player-coins",
         payload: updatedCoins,
       },
+      ".. get reward ..",
       "add coins",
       coinsReward,
-      "tot",
+      "total",
       updatedCoins
     );
     characterMove(coords);
