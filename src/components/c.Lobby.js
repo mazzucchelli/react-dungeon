@@ -1,22 +1,33 @@
 import React, { useContext } from "react";
 import { allCharacters } from "../mocks/characters";
-
+import { createDungeoun } from "../helpers/mapHelpers";
 import { GameContext } from "../contexts/Game";
 
 export default function Lobby() {
-  const { game, dispatch } = useContext(GameContext);
+  const { game, dispatcher } = useContext(GameContext);
 
   const selectPG = (index) => {
     const selected = allCharacters[index];
-    dispatch({
-      type: "select-player",
-      payload: selected,
-      logs: [`selected characther ${selected.name}`, ...game.logs],
-    });
+    dispatcher(
+      {
+        type: "select-player",
+        payload: selected,
+      },
+      `selected characther ${selected.name}`
+    );
   };
 
   const startGame = () => {
-    dispatch({ type: "game-start", logs: [`game started`, ...game.logs] });
+    const createdDungeoun = createDungeoun(game.config.currentLevel);
+
+    dispatcher(
+      {
+        type: "update-dungeon",
+        payload: createdDungeoun,
+      },
+      "update-dungeon"
+    );
+    dispatcher({ type: "game-start" }, `game started`);
   };
 
   return (

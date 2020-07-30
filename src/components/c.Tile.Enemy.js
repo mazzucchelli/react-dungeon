@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import classNames from "classnames";
 import { GameContext } from "../contexts/Game";
 import BaseTile from "./c.Tile";
-import { GIF } from "./c.GIF";
+import { Gif } from "./c.UI";
 import spriteData from "../mocks/spriteData.json";
 import { rollPure } from "../helpers/utilities";
 import heartIMG from "../assets/stat_heart.png";
@@ -83,7 +83,7 @@ const Enemy = ({ data, tile, ...rest }) => {
           {stats.HP > 0 ? (
             <>
               <span className="name">{data.name}</span>
-              <GIF
+              <Gif
                 name={data.sprite}
                 image={`assets/mobs/${data.sprite}.png`}
                 size={38}

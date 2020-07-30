@@ -9,7 +9,7 @@
       {
         "notVoid": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
         "composition": {
-          "chest": 20
+          "shop": 20
         }
       },
       {
@@ -40,7 +40,7 @@
       "fight": 200,
       "chest": 20,
       "shop": 5,
-      "pill": 25,
+      "egg": 25,
       "potion": 25,
       "void": 100
     }
@@ -56,7 +56,7 @@
       "chest": 3,
       "shop": 2,
       "midboss": 2,
-      "pills": 4,
+      "eggs": 4,
       "void": 3
     }
   },
@@ -71,7 +71,7 @@
       "chest": 3,
       "shop": 2,
       "midboss": 2,
-      "pills": 4,
+      "eggs": 4,
       "void": 3
     }
   }

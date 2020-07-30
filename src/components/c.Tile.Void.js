@@ -1,19 +1,17 @@
 import React from "react";
 
 import BaseTile from "./c.Tile";
+import { Gif } from "./c.UI";
 
-const Void = ({
-  x,
-  y,
-  ...rest
-}) => {
+const Void = ({ x, y, ...rest }) => {
   return (
-    <BaseTile
-      onClick={() => {}}
-      {...rest}
-    >
+    <BaseTile onClick={() => {}} {...rest}>
       <span className="coords">
-        {x} - {y}
+        <Gif
+          name="SparksA"
+          image={`assets/mobs/SparksA.png`}
+          size={38}
+        />
       </span>
     </BaseTile>
   );

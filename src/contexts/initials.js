@@ -10,8 +10,7 @@ const INITIAL_STATE = {
   dungeon: [],
   potions: {},
   items: {},
-  pills: {},
-  logs: ['context loaded']
+  eggs: {},
 };
 
 export default INITIAL_STATE;

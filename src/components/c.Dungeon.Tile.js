@@ -5,7 +5,7 @@ import Character from "./c.Character.Tile"
 import Chest from "./c.Tile.Chest";
 import Enemy from "./c.Tile.Enemy";
 import Potion from "./c.Tile.Potion";
-import Pill from "./c.Tile.Pill";
+import Egg from "./c.Tile.Egg";
 import Shop from "./c.Tile.Shop";
 import Void from "./c.Tile.Void";
 import Empty from "./c.Tile.Empty";
@@ -16,8 +16,8 @@ const DynamicCard = ({ tile, ...rest }) => {
       return <Enemy tile={tile} {...rest} />;
     case "chest":
       return <Chest tile={tile} {...rest} />;
-    case "pill":
-      return <Pill tile={tile} {...rest} />;
+    case "egg":
+      return <Egg tile={tile} {...rest} />;
     case "midboss":
       return <Enemy tile={tile} {...rest} />;
     case "boss":

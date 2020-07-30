@@ -5,6 +5,7 @@ export const InventoryCSS = styled("div")`
 `;
 
 export const InventoryItemCSS = styled("div")`
+  cursor: pointer;
   padding: 10px;
   font-size: 14px;
   border: 2px solid white;

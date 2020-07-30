@@ -6,7 +6,7 @@ import levels from "../mocks/levels.json";
 import generators from "./Generator";
 import playerView from "./playerView";
 
-const { ItemAPI, PillAPI, FightAPI, PotionAPI } = generators;
+const { ItemAPI, EggAPI, FightAPI, PotionAPI } = generators;
 
 const findCards = (coords, schema) => {
   const finder = playerView[schema];
@@ -175,10 +175,10 @@ export const generateTiles = (dungeonMap, lvl) => {
             ...cell,
             data: [ItemAPI.getItem()],
           };
-        case "pill":
+        case "egg":
           return {
             ...cell,
-            data: PillAPI.getItem(),
+            data: EggAPI.getItem(),
           };
         case "fight":
           return {
@@ -210,10 +210,10 @@ export const generateTilesByRow = (dungeonRow, lvl) => {
           ...cell,
           data: [ItemAPI.getItem()],
         };
-      case "pill":
+      case "egg":
         return {
           ...cell,
-          data: PillAPI.getItem(),
+          data: EggAPI.getItem(),
         };
       case "fight":
         return {
@@ -225,6 +225,11 @@ export const generateTilesByRow = (dungeonRow, lvl) => {
           ...cell,
           data: PotionAPI.getItem(),
         };
+        case "shop":
+          return {
+            ...cell,
+            data: [ItemAPI.getItem(), ItemAPI.getItem(), ItemAPI.getItem(), ItemAPI.getItem()],
+          };
       default:
         // console.log("generate no type", cell);
         return cell;
@@ -232,6 +237,11 @@ export const generateTilesByRow = (dungeonRow, lvl) => {
   });
 };
 
+/**
+ * set params form on level start, like discovered and availables
+ *
+ * @param {Array} grid GameContext.game.dungeon
+ */
 export const initialCardsStats = (grid) => {
   // console.log(grid[0]);
   return grid.map((row, i) => {
@@ -258,11 +268,11 @@ export const initialCardsStats = (grid) => {
 /**
  * Parse dungeon and apply changes
  *
- * @param {Array} dungeon GameContext.dungeon
+ * @param {Array} dungeon GameContext.game.dungeon
  * @param {Object} coords? tile coordinates { x, y } to modify, if null all tiles will be modified
  * @param {Function} modifier modifier function (tile) => {{ ...tile, <your-stuff>}}
  *
- * @return {Array} GameContext.dungeon
+ * @return {Array} GameContext.game.dungeon
  */
 export const mapDungeonGrid = (dungeon, coords, modifier) => {
   if (coords) {
@@ -292,7 +302,7 @@ export const mapDungeonGrid = (dungeon, coords, modifier) => {
 /**
  * Used for "active" item mode, eneble [...tile].target: true
  *
- * @param {string} type undiscovered
+ * @param {String} type undiscovered
  * @param {Object} ctx GameContext.game
  *
  * @return {Array} GameContext.game.dungeon
@@ -310,4 +320,22 @@ export const getTargetTiles = (type, ctx) => {
     default:
       break;
   }
+};
+
+/**
+ * Generate tiles based on current level
+ *
+ * @param {String} currentLevel
+ *
+ * @return {Array} GameContex.game
+ */
+export const createDungeoun = (currentLevel) => {
+  const START_INDEX = 2;
+  const baseMap = generateDungeon(levels[currentLevel], START_INDEX);
+  const mapWithTilesData = generateTiles(baseMap, currentLevel);
+  const mapWithFirstRow = generateFirstRows(mapWithTilesData, currentLevel);
+  const mapWithLastRow = generateLastRows(mapWithFirstRow, currentLevel);
+  const createdDungeon = initialCardsStats(mapWithLastRow);
+  // console.log("created Dungeon", mapWithLastRow);
+  return createdDungeon;
 };

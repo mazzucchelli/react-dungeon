@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid, Cell } from "styled-css-grid";
+import { ModalProvider } from "styled-react-modal";
 import "./styles.css";
 
 import { GameContext, GameProvider } from "./contexts/Game";
@@ -12,14 +13,16 @@ const View = () => {
 
   return game.config.started ? (
     <>
-      <Grid columns={"1fr 300px"} areas={["main side"]} gap="2px">
-        <Cell area="main">
-          <Dungeon />
-        </Cell>
-        <Cell area="side">
-          <CharacterPanel />
-        </Cell>
-      </Grid>
+      <ModalProvider>
+        <Grid columns={"1fr 300px"} areas={["main side"]} gap="2px">
+          <Cell area="main">
+            <Dungeon />
+          </Cell>
+          <Cell area="side">
+            <CharacterPanel />
+          </Cell>
+        </Grid>
+      </ModalProvider>
     </>
   ) : (
     <Lobby />

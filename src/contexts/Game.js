@@ -1,30 +1,19 @@
 import React, { useEffect, useReducer, useState, useRef } from "react";
 import INITIAL_STATE from "./initials";
 import reducer from "./reducer";
-import levels from "../mocks/levels.json";
+// import levels from "../mocks/levels.json";
 import { rollDice } from "../helpers/utilities";
 import {
-  generateDungeon,
-  generateTiles,
-  generateFirstRows,
-  generateLastRows,
-  initialCardsStats,
+  // generateDungeon,
+  // generateTiles,
+  // generateFirstRows,
+  // generateLastRows,
+  // initialCardsStats,
   // mapDungeonGrid,
   getTargetTiles,
 } from "../helpers/mapHelpers";
 
 export const GameContext = React.createContext();
-
-const createDungeoun = (currentLevel) => {
-  const START_INDEX = 2;
-  const baseMap = generateDungeon(levels[currentLevel], START_INDEX);
-  const mapWithTilesData = generateTiles(baseMap, currentLevel);
-  const mapWithFirstRow = generateFirstRows(mapWithTilesData, currentLevel);
-  const mapWithLastRow = generateLastRows(mapWithFirstRow, currentLevel);
-  const createdDungeon = initialCardsStats(mapWithLastRow);
-  // console.log("created Dungeon", mapWithLastRow);
-  return createdDungeon;
-};
 
 export const GameProvider = ({ children }) => {
   /**
@@ -67,19 +56,19 @@ export const GameProvider = ({ children }) => {
     }
   }, [game.player, game.config]);
 
-  /**
-   * mount component effect
-   */
-  useEffect(() => {
-    const dungeon = createDungeoun(game.config.currentLevel);
-    dispatcher(
-      {
-        type: "update-dungeon",
-        payload: dungeon,
-      },
-      "update-dungeon"
-    );
-  }, []);
+  // /**
+  //  * mount component effect
+  //  */
+  // useEffect(() => {
+  //   const dungeon = createDungeoun(game.config.currentLevel);
+  //   dispatcher(
+  //     {
+  //       type: "update-dungeon",
+  //       payload: dungeon,
+  //     },
+  //     "update-dungeon"
+  //   );
+  // }, []);
 
   /**
    * Game over effect
@@ -108,16 +97,6 @@ export const GameProvider = ({ children }) => {
           type: "game-over",
         },
         "game-over"
-      );
-      const createdDungeoun = createDungeoun(game.config.currentLevel);
-
-      dispatcher(
-        "update-dungeon",
-        {
-          type: "update-dungeon",
-          payload: createdDungeoun,
-        },
-        "update-dungeon"
       );
     }
   }, [game.player, game.dungeon]);
@@ -273,7 +252,7 @@ export const GameProvider = ({ children }) => {
         );
         break;
       default:
-        console.error("Unregistered action", type, params);
+        console.error("Unregistered action type", type, params);
         break;
     }
   };

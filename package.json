@@ -17,6 +17,7 @@
     "shortid": "2.2.15",
     "styled-components": "5.1.1",
     "styled-css-grid": "^1.2.1",
+    "styled-react-modal": "^2.0.1",
     "use-immer": "0.4.1"
   },
   "devDependencies": {

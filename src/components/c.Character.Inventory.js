@@ -1,6 +1,6 @@
 import React from "react";
 import { InventoryCSS, InventoryItemCSS } from "./c.Character.Inventory._CSS";
-import { GIF } from "./c.GIF";
+import { Gif } from "./c.UI";
 import { GameContext } from "../contexts/Game";
 
 const CharacterInventory = ({ data }) => {
@@ -12,7 +12,7 @@ const CharacterInventory = ({ data }) => {
       INV:{" "}
       {inventory.map((el) => (
         <InventoryItemCSS key={el.id} onClick={() => consume(el.id)}>
-          <GIF
+          <Gif
             name={el.name}
             image={`assets/items/${el.image}.png`}
             size={22}

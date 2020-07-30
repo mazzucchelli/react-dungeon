@@ -8,7 +8,7 @@ import EggA2 from "../assets/items/EggA2.png";
 import EggA3 from "../assets/items/EggA3.png";
 import { rollPure } from "../helpers/utilities";
 
-const Pill = ({ data, tile, ...rest }) => {
+const Egg = ({ data, tile, ...rest }) => {
   const { handleAction, characterMove } = React.useContext(GameContext);
   const { available, discovered } = tile;
 
@@ -17,8 +17,8 @@ const Pill = ({ data, tile, ...rest }) => {
     y: tile.coords.split("-")[1].trim() * 1,
   };
 
-  const pills = [EggA0, EggA1, EggA2, EggA3];
-  const PillIMG = pills[rollPure(0, 3)];
+  const eggs = [EggA0, EggA1, EggA2, EggA3];
+  const EggIMG = eggs[rollPure(0, 3)];
 
   const handleClick = () => {
     if (!available) return;
@@ -34,7 +34,7 @@ const Pill = ({ data, tile, ...rest }) => {
       {discovered ? (
         <>
           <div></div>
-          <img width="48" src={PillIMG} alt="HP icon" />
+          <img width="48" src={EggIMG} alt="HP icon" />
           <div></div>
         </>
       ) : (
@@ -44,4 +44,4 @@ const Pill = ({ data, tile, ...rest }) => {
   );
 };
 
-export default Pill;
+export default Egg;

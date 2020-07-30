@@ -1,14 +1,14 @@
 import shortid from "shortid";
 
 import { allItems } from "../mocks/items";
-import { allPills } from "../mocks/pills";
+import { allEggs } from "../mocks/eggs";
 import { allMonsters } from "../mocks/monsters";
 import { allPotions } from "../mocks/potions";
 import { shuffle } from "./utilities";
 
 const modes = {
   items: allItems,
-  pills: allPills,
+  eggs: allEggs,
   fight: allMonsters,
   potions: allPotions,
 };
@@ -38,7 +38,14 @@ class Generator {
           ...el,
         });
         break;
-      case "pills":
+      case "shop":
+        this.cached.push({
+          id: shortid.generate(),
+          ...el,
+          items: [generators.ItemAPI.getItem()]
+        });
+        break;
+      case "eggs":
         this.cached.push({
           id: shortid.generate(),
           ...el,
@@ -189,7 +196,7 @@ class Generator {
 const generators = {
   GeneratorAPI: new Generator(),
   ItemAPI: new Generator("items"),
-  PillAPI: new Generator("pills"),
+  EggAPI: new Generator("eggs"),
   FightAPI: new Generator("fight"),
   PotionAPI: new Generator("potions"),
 };

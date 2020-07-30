@@ -1,4 +1,4 @@
-// FIXME: potions can only have 1 action
+import { updatePlayerStats } from "../helpers/playerHelpers";
 
 export const allPotions = [
   {
@@ -10,10 +10,13 @@ export const allPotions = [
     probability: 20,
     actions: [
       {
-        type: "player-stats",
-        payload: { HP: 2 },
+        type: "instant",
+        params: {
+          event: "player-stats",
+          getPayload: (game) => updatePlayerStats({ HP: 2 }, game),
+        },
       },
-    ]
+    ],
   },
   {
     name: "shield+ potion",
@@ -24,10 +27,13 @@ export const allPotions = [
     probability: 15,
     actions: [
       {
-        type: "player-stats",
-        payload: { shield: 3 },
+        type: "instant",
+        params: {
+          event: "player-stats",
+          getPayload: (game) => updatePlayerStats({ shield: 3 }, game),
+        },
       },
-    ]
+    ],
   },
   {
     name: "HP+ shield- potion",
@@ -38,11 +44,13 @@ export const allPotions = [
     probability: 15,
     actions: [
       {
-        type: "player-stats",
-        payload: { HP: 3,
-        shield: -1 },
+        type: "instant",
+        params: {
+          event: "player-stats",
+          getPayload: (game) => updatePlayerStats({ HP: 3, shield: -1 }, game),
+        },
       },
-    ]
+    ],
   },
   {
     name: "HP- shield+ potion",
@@ -53,13 +61,13 @@ export const allPotions = [
     probability: 15,
     actions: [
       {
-        type: "player-stats",
-        payload: {
-          HP: -1,
-          shield: 3,
+        type: "instant",
+        params: {
+          event: "player-stats",
+          getPayload: (game) => updatePlayerStats({ HP: -1, shield: 3 }, game),
         },
       },
-    ]
+    ],
   },
   {
     name: "Att+ potion",
@@ -70,10 +78,13 @@ export const allPotions = [
     probability: 13,
     actions: [
       {
-        type: "player-stats",
-        payload: { HP: 1 },
+        type: "instant",
+        params: {
+          event: "player-stats",
+          getPayload: (game) => updatePlayerStats({ att: 1 }, game),
+        },
       },
-    ]
+    ],
   },
   {
     name: "MaxHP+ potion",
@@ -84,9 +95,12 @@ export const allPotions = [
     probability: 13,
     actions: [
       {
-        type: "player-stats",
-        payload: { maxHP: 2 },
+        type: "instant",
+        params: {
+          event: "player-stats",
+          getPayload: (game) => updatePlayerStats({ maxHP: 2 }, game),
+        },
       },
-    ]
+    ],
   },
 ];

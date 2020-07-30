@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const GIF = styled("div")`
+export const Gif = styled("div")`
   width: ${({ size }) => `${size || 16}px`};
   height: ${({ size }) => `${size || 16}px`};
   background-image: ${({ image }) => `url(${image})`};
@@ -15,4 +15,11 @@ export const GIF = styled("div")`
             }
         }
     `}
+`;
+
+export const GifFrame = styled("div")`
+  width: ${({ size }) => `${size || 16}px`};
+  height: ${({ size }) => `${size || 16}px`};
+  background-image: ${({ image }) => `url(${image})`};
+  background-size: cover;
 `;

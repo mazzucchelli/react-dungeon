@@ -40,8 +40,8 @@
     "completed": false
   },
   {
-    "name": "pill",
-    "type": "pill",
+    "name": "egg",
+    "type": "egg",
     "background": "#414141",
     "discovered": false,
     "available": false,

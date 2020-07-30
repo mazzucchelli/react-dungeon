@@ -1,13 +1,13 @@
 import React from "react";
 import { GameContext } from "../contexts/Game";
 import BaseTile from "./c.Tile";
-import { GIF } from "./c.GIF";
+import { Gif } from "./c.UI";
 import spriteData from "../mocks/spriteData.json";
 
 const Potion = ({ data, tile, ...rest }) => {
   const { handleAction, characterMove } = React.useContext(GameContext);
   const { available, discovered } = tile;
-  const [effects, setEffects] = React.useState([]);
+  // const [effects, setEffects] = React.useState([]);
   const { frames } = spriteData[data.sprite];
 
   const coords = {
@@ -15,21 +15,21 @@ const Potion = ({ data, tile, ...rest }) => {
     y: tile.coords.split("-")[1].trim() * 1,
   };
 
-  const actionsList = React.useCallback(() => {
-    const res = [];
-    for (const [key, value] of Object.entries(data.actions[0].payload)) {
-      res.push({
-        label: key,
-        value,
-      });
-    }
-    return res;
-  }, [data.actions]);
+  // const actionsList = React.useCallback(() => {
+  //   const res = [];
+  //   for (const [key, value] of Object.entries(data.actions[0].payload)) {
+  //     res.push({
+  //       label: key,
+  //       value,
+  //     });
+  //   }
+  //   return res;
+  // }, [data.actions]);
 
-  React.useEffect(() => {
-    const list = actionsList();
-    setEffects(list);
-  }, [actionsList]);
+  // React.useEffect(() => {
+  //   const list = actionsList();
+  //   setEffects(list);
+  // }, [actionsList]);
 
   const handleClick = () => {
     if (!available) return;
@@ -37,6 +37,7 @@ const Potion = ({ data, tile, ...rest }) => {
     data.actions.forEach((action) => {
       handleAction(action);
     });
+
     characterMove(coords)
   };
 
@@ -44,17 +45,17 @@ const Potion = ({ data, tile, ...rest }) => {
     <BaseTile data={data} tile={tile} {...rest} onClick={() => handleClick()}>
       {discovered ? (
         <>
-          <GIF
+          <Gif
             name={data.sprite}
             image={`assets/potions/${data.sprite}.png`}
             size={38}
             frames={frames}
           />
-          {effects.map((el, i) => (
+          {/* {effects.map((el, i) => (
             <span key={i} className={el.label}>
               {el.label}: {el.value}
             </span>
-          ))}
+          ))} */}
         </>
       ) : (
         ""
