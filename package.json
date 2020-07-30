@@ -29,7 +29,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "spritedata": "node ./imageParser.js"
+    "spritedata": "node ./imageParser.js",
+    "netlify": "CI= react-scripts build"
   },
   "browserslist": [
     ">0.2%",
