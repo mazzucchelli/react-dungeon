@@ -1,6 +1,8 @@
 import { mapDungeonGrid } from "../helpers/mapHelpers";
 import { updatePlayerStats } from "../helpers/playerHelpers";
+import generators from "../helpers/Generator";
 
+// 00 . create-empty-tile
 // 00 . reveal-enemies
 // 00 . reveal-eggs
 // 00 . reveal-chests
@@ -12,6 +14,51 @@ import { updatePlayerStats } from "../helpers/playerHelpers";
 // 00 . HP potion large
 
 export const allItems = [
+  {
+    name: "inspect",
+    price: 10,
+    slug: "inspect",
+    image: "scrollDetect",
+    description: "inspect unknown card",
+    quantity: 2,
+    probability: 4,
+    actions: [
+      {
+        type: "active",
+        params: {
+          target: ["undiscovered"],
+          event: "update-dungeon",
+          getPayload: (game, { x, y }) =>
+            mapDungeonGrid(game.dungeon, { x, y }, (tile) => {
+              return { ...tile, discovered: true };
+            }),
+        },
+      },
+    ],
+  },
+  {
+    name: "create empty tile",
+    price: 10,
+    slug: "create-empty-tile",
+    image: "scrollDetect",
+    description: "create empty tile",
+    quantity: 2,
+    probability: 4,
+    actions: [
+      {
+        type: "active",
+        params: {
+          target: ["void"],
+          event: "update-dungeon",
+          getPayload: (game, { x, y }) =>
+            mapDungeonGrid(game.dungeon, { x, y }, () => {
+              const emptyTile = generators.GeneratorAPI.getEmpty();
+              return { ...emptyTile, coords: `${x} - ${y}`, discovered: true };
+            }),
+        },
+      },
+    ],
+  },
   {
     name: "reveal-enemies",
     price: 10,
@@ -138,28 +185,6 @@ export const allItems = [
     ],
   },
   {
-    name: "inspect",
-    price: 10,
-    slug: "inspect",
-    image: "scrollDetect",
-    description: "inspect unknown card",
-    quantity: 2,
-    probability: 4,
-    actions: [
-      {
-        type: "active",
-        params: {
-          target: ["undiscovered"],
-          event: "update-dungeon",
-          getPayload: (game, { x, y }) =>
-            mapDungeonGrid(game.dungeon, { x, y }, (tile) => {
-              return { ...tile, discovered: true };
-            }),
-        },
-      },
-    ],
-  },
-  {
     name: "HP potion small",
     price: 10,
     slug: "HP-potion-small",
@@ -231,6 +256,7 @@ export const allItems = [
       },
     ],
   },
+
   // {
   //   name: "pay for shield",
   //   slug: "pay-for-shield-10-10",

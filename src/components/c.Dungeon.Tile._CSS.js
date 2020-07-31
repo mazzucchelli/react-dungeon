@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 const CARD_BACK = "#525252";
-const CARD_SHADOW = "0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)";
+const CARD_SHADOW =
+  "0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)";
 
 export const DungeonTileCSS = styled("div")`
-  border-right: 1px dotted rgba(255, 255, 255, 0.3);
   width: 20%;
   height: calc(100vh / 6);
   padding: 10px;
@@ -13,19 +13,23 @@ export const DungeonTileCSS = styled("div")`
   user-select: none;
   position: relative;
   cursor: ${({ available, isVoid }) => (available && !isVoid ? "pointer" : "")};
-  box-shadow: ${({ available, isVoid }) =>
-    available && !isVoid ? "0 0 0 rgba(255, 255, 255, 0.4);" : ""};
+  /* box-shadow: ${({ available, isVoid }) =>
+    available ? "0 0 0 rgba(255, 255, 255, 0.4);" : ""};
   animation: ${({ available, isVoid }) =>
-    available && !isVoid ? "pulse 1s infinite" : ""};
+    available ? "pulse 1s infinite" : ""}; */
 
-  ${({ completed, isVoid, current}) =>
-    (completed || isVoid) && !current
+  ${({ completed, current }) =>
+    completed && !current
       ? `
         .flip-card-inner {
           display: none;
-        }
+        };
       `
       : ""}
+
+  &:not(:last-child) {
+    border-right: 1px dotted rgba(255, 255, 255, 0.3);
+  }
 
   .coords {
     position: absolute;
@@ -89,8 +93,8 @@ export const DungeonTileCSS = styled("div")`
     text-align: center;
     transition: transform 0.4s ease;
     transform-style: preserve-3d;
-    background: ${CARD_BACK};
-    box-shadow: ${CARD_SHADOW};
+    background: ${({ isVoid }) => (!isVoid ? CARD_BACK : "transparent")};
+    box-shadow: ${({ isVoid }) => (!isVoid ? CARD_SHADOW : "none")};
   }
 
   .flip-card:not(.discovered) .flip-card-inner {
@@ -128,6 +132,74 @@ export const DungeonTileCSS = styled("div")`
     }
     100% {
       box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+  }
+`;
+
+export const TargetIndicatorsCSS = styled("div")`
+  opacity: 0;
+  animation: ${({ active }) => active && "pulse-indicarors .6s infinite"};
+
+  > div {
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      background: white;
+    }
+
+    &:before {
+      width: 10px;
+      height: 2px;
+    }
+
+    &:after {
+      height: 10px;
+      width: 2px;
+    }
+  }
+
+  .top-left {
+    &:before,
+    &:after {
+      top: 4px;
+      left: 4px;
+    }
+  }
+
+  .top-right {
+    &:before,
+    &:after {
+      top: 4px;
+      right: 4px;
+    }
+  }
+
+  .bottom-left {
+    &:before,
+    &:after {
+      bottom: 4px;
+      left: 4px;
+    }
+  }
+
+  .bottom-right {
+    &:before,
+    &:after {
+      bottom: 4px;
+      right: 4px;
+    }
+  }
+
+  @keyframes pulse-indicarors {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
     }
   }
 `;

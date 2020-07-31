@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { allCharacters } from "../mocks/characters";
 import { createDungeoun } from "../helpers/mapHelpers";
 import { GameContext } from "../contexts/Game";
+import CharacterPanel from "./c.Character.Panel";
+import { CharactersGrid, StartGameButton } from "./c.Lobby._CSS";
 
 export default function Lobby() {
   const { game, dispatcher } = useContext(GameContext);
@@ -32,17 +34,28 @@ export default function Lobby() {
 
   return (
     <>
-      {allCharacters.map((pg, i) => (
-        <div key={i} onClick={() => selectPG(i)}>
-          {pg.name}
-        </div>
-      ))}
-      <button
-        disabled={!game.config.selectedCharacter}
-        onClick={() => startGame()}
-      >
-        start
-      </button>
+      <CharactersGrid>
+        {allCharacters.map((pg, i) => (
+          <div
+            key={i}
+            onClick={() => selectPG(i)}
+            style={{
+              background:
+                game.player.name === pg.name ? "tomato" : "transparent",
+            }}
+          >
+            <CharacterPanel character={pg} readOnly={true} />
+          </div>
+        ))}
+      </CharactersGrid>
+      <div style={{ textAlign: "center", marginTop: "30px", maxWidth: "600px", margin: "0 auto" }}>
+        <StartGameButton
+          disabled={!game.config.selectedCharacter}
+          onClick={() => startGame()}
+        >
+          start
+        </StartGameButton>
+      </div>
     </>
   );
 }

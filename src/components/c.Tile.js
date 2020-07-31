@@ -2,7 +2,16 @@ import React, { useContext } from "react";
 import classNames from "classnames";
 
 import { GameContext } from "../contexts/Game";
-import { DungeonTileCSS } from "./c.Dungeon.Tile._CSS";
+import { DungeonTileCSS, TargetIndicatorsCSS } from "./c.Dungeon.Tile._CSS";
+
+const TargetTileBG = ({ active }) => (
+  <TargetIndicatorsCSS active={active}>
+    <div className="top-left"></div>
+    <div className="top-right"></div>
+    <div className="bottom-left"></div>
+    <div className="bottom-right"></div>
+  </TargetIndicatorsCSS>
+);
 
 const BaseTile = ({ onClick, tile, children, ...rest }) => {
   // const [itemMode, setItemMode] = React.useState({});
@@ -40,22 +49,28 @@ const BaseTile = ({ onClick, tile, children, ...rest }) => {
   };
 
   return (
-    <DungeonTileCSS
-      bg={tile.background}
-      discovered={tile.discovered}
-      available={itemMode ? tile.target : tile.available}
-      completed={tile.completed}
-      isVoid={tile.type === "void"}
-      onClick={() => clickHandler()}
-      {...rest}
-    >
-      <div className={classNames("flip-card", { discovered: tile.discovered })}>
-        <div className="flip-card-inner">
-          <div className="flip-card-front" />
-          <div className="flip-card-back">{children}</div>
+    <>
+      <DungeonTileCSS
+        bg={tile.background}
+        discovered={tile.discovered}
+        available={itemMode ? tile.target : tile.available}
+        completed={tile.completed}
+        // type={tile.type}
+        isVoid={tile.type === "void"}
+        onClick={() => clickHandler()}
+        {...rest}
+      >
+        <TargetTileBG active={itemMode ? tile.target : tile.available} />
+        <div
+          className={classNames("flip-card", { discovered: tile.discovered })}
+        >
+          <div className="flip-card-inner">
+            <div className="flip-card-front" />
+            <div className="flip-card-back">{children}</div>
+          </div>
         </div>
-      </div>
-    </DungeonTileCSS>
+      </DungeonTileCSS>
+    </>
   );
 };
 

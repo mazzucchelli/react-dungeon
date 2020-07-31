@@ -40,11 +40,11 @@
       }
     ],
     "composition": {
-      "fight": 200,
-      "chest": 20,
+      "chest": 10,
       "shop": 5,
-      "egg": 25,
-      "potion": 25,
+      "egg": 7,
+      "potion": 10,
+      "fight": 200,
       "void": 100
     }
   },

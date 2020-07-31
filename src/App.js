@@ -19,7 +19,7 @@ const View = () => {
             <Dungeon />
           </Cell>
           <Cell area="side">
-            <CharacterPanel />
+            <CharacterPanel showFloor={true} />
           </Cell>
         </Grid>
       </ModalProvider>

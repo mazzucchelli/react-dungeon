@@ -3,15 +3,19 @@ import { InventoryCSS, InventoryItemCSS } from "./c.Character.Inventory._CSS";
 import { Gif } from "./c.UI";
 import { GameContext } from "../contexts/Game";
 
-const CharacterInventory = ({ data }) => {
-  const { game, consume } = React.useContext(GameContext);
-  const { inventory } = game.player;
+const CharacterInventory = ({ data, readOnly }) => {
+  const { consume } = React.useContext(GameContext);
+
+  const handleClick = (id) => {
+    if (readOnly) return;
+    consume(id);
+  };
 
   return (
     <InventoryCSS>
-      INV:{" "}
-      {inventory.map((el) => (
-        <InventoryItemCSS key={el.id} onClick={() => consume(el.id)}>
+      <span className="title">Inventory:</span>
+      {data.map((el) => (
+        <InventoryItemCSS key={el.id} onClick={() => handleClick(el.id)}>
           <Gif
             name={el.name}
             image={`assets/items/${el.image}.png`}

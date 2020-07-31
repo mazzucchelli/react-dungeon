@@ -59,7 +59,7 @@
     "name": "void",
     "type": "void",
     "background": "transparent",
-    "discovered": false,
+    "discovered": true,
     "available": false,
     "completed": false
   }

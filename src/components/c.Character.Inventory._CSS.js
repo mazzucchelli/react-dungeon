@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 export const InventoryCSS = styled("div")`
-  padding: 0 10px;
+  /* padding: 0 10px; */
+  .title {
+    margin-bottom: 10px;
+    display: block;
+  }
 `;
 
 export const InventoryItemCSS = styled("div")`

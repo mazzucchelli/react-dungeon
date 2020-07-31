@@ -25,10 +25,15 @@ export const handleCardStatus = (dungeon, coords, schemas) => {
       return {
         ...cell,
         discovered:
-          !cell.discovered && discoverArr.includes(cell.coords)
+          !cell.discovered &&
+          discoverArr.includes(cell.coords) &&
+          cell.type !== "void"
             ? true
             : cell.discovered,
-        available: availableArr.includes(cell.coords) && !cell.completed,
+        available:
+          availableArr.includes(cell.coords) &&
+          !cell.completed &&
+          cell.type !== "void",
         completed:
           !cell.completed && cell.coords === `${x} - ${y}`
             ? true
@@ -225,11 +230,16 @@ export const generateTilesByRow = (dungeonRow, lvl) => {
           ...cell,
           data: PotionAPI.getItem(),
         };
-        case "shop":
-          return {
-            ...cell,
-            data: [ItemAPI.getItem(), ItemAPI.getItem(), ItemAPI.getItem(), ItemAPI.getItem()],
-          };
+      case "shop":
+        return {
+          ...cell,
+          data: [
+            ItemAPI.getItem(),
+            ItemAPI.getItem(),
+            ItemAPI.getItem(),
+            ItemAPI.getItem(),
+          ],
+        };
       default:
         // console.log("generate no type", cell);
         return cell;
@@ -246,18 +256,18 @@ export const initialCardsStats = (grid) => {
   // console.log(grid[0]);
   return grid.map((row, i) => {
     if (i === 0) {
-      return row.map((card, i) => {
+      return row.map((tile, i) => {
         return {
-          ...card,
+          ...tile,
           discovered: true,
-          available: true,
+          available: tile.type !== "void",
         };
       });
     } else {
       return row;
-      // return row.map((card, i) => {
+      // return row.map((tile, i) => {
       //   return {
-      //     ...card,
+      //     ...tile,
       //     discovered: true,
       //   };
       // });
@@ -318,7 +328,13 @@ export const getTargetTiles = (type, ctx) => {
         }
       });
     default:
-      break;
+      return mapDungeonGrid(ctx.dungeon, null, (tile) => {
+        if (tile.type === type) {
+          return { ...tile, target: true };
+        } else {
+          return tile;
+        }
+      });
   }
 };
 

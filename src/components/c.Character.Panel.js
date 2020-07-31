@@ -1,43 +1,59 @@
 import React from "react";
-import { CharacterPanelCSS } from "./c.Character.Panel._CSS";
+import {
+  CharacterPanelCSS,
+  CharacterStatsCSS,
+  CharacterInfoCSS,
+} from "./c.Character.Panel._CSS";
 import { GameContext } from "../contexts/Game";
 import Inventory from "./c.Character.Inventory";
-// import Logs from "./c.Logs";
+import { Pixelify } from "react-pixelify";
 
 import heartIMG from "../assets/stat_heart.png";
 import shieldIMG from "../assets/stat_shield.png";
 import swordIMG from "../assets/stat_sword.png";
 import coinIMG from "../assets/stat_coin.png";
 
-const CharacterPanel = () => {
+const CharacterPanel = ({ character, showFloor, readOnly }) => {
   const { game } = React.useContext(GameContext);
+  const pg = character || game.player;
 
   return (
     <CharacterPanelCSS>
-      <div>
-        <img width="100" src={game.player.avatar} alt="character avatar" />
-      </div>
-      <div>
-        <img width="20" src={heartIMG} alt="HP icon" /> {game.player.stats.HP}/
-        {game.player.stats.maxHP}
-      </div>
-      <div>
-        <img width="20" src={swordIMG} alt="Damage icon" />
-        {game.player.stats.att}
-      </div>
-      <div>
-        <img width="20" src={shieldIMG} alt="Shield icon" />
-        {game.player.stats.shield}
-      </div>
-      <div>
-        <img width="20" src={coinIMG} alt="Coins icon" />
-        {game.player.coins}
-      </div>
-      <div>Floor: {game.config.currentFloor}</div>
-      <div>
-        <Inventory />
-        {/* <Logs /> */}
-      </div>
+      <CharacterInfoCSS>
+        <div>
+          <Pixelify src={pg.avatar} pixelSize={2} />
+        </div>
+        <div>
+          <span className="character-name">{pg.name}</span>
+          {showFloor && (
+            <span className="current-floor">
+              <br />
+              Floor: {game.config.currentFloor}
+            </span>
+          )}
+        </div>
+      </CharacterInfoCSS>
+      <CharacterStatsCSS>
+        <div>
+          <img width="20" src={heartIMG} alt="HP icon" />
+          <span className="value">
+            {pg.stats.HP}/{pg.stats.maxHP}
+          </span>
+        </div>
+        <div>
+          <img width="20" src={swordIMG} alt="Damage icon" />
+          <span className="value">{pg.stats.att}</span>
+        </div>
+        <div>
+          <img width="20" src={shieldIMG} alt="Shield icon" />
+          <span className="value">{pg.stats.shield}</span>
+        </div>
+        <div>
+          <img width="20" src={coinIMG} alt="Coins icon" />
+          <span className="value">{pg.coins}</span>
+        </div>
+      </CharacterStatsCSS>
+      <Inventory data={pg.inventory} readOnly={readOnly} />
     </CharacterPanelCSS>
   );
 };

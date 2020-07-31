@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const OverflowHidden = styled("div")`
-  height: calc(100vh - 50px);
+  height: calc(100vh);
   position: relative;
   width: 100%;
   /* max-width: 600px; */
@@ -10,7 +10,7 @@ export const OverflowHidden = styled("div")`
 `;
 
 export const DungeonGridCSS = styled("div")`
-  padding: 15px;
+  padding-bottom: 20px;
   width: 100%;
   /* height: 100%; */
   display: flex;
