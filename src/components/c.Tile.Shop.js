@@ -48,7 +48,7 @@ const Shop = ({ tile, data, ...rest }) => {
           >
             <span>I am a modal!</span>
             <button onClick={(e) => toggleModal(e)}>Close me</button>
-            {data.map((el) => (
+            {data && data.map((el) => (
               <div key={el.id}>
                 <GifFrame
                   name={el.name}

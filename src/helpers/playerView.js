@@ -15,6 +15,7 @@ reference
 */
 
 const playerView = {
+  nothing: () => [],
   front: (x, y) => {
     /*
       +---+---+---+

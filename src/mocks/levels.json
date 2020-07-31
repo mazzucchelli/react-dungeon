@@ -2,20 +2,23 @@
   "0": {
     "name": "first floor",
     "size": {
-      "rows": 10,
-      "cols": 10
+      "rows": 11,
+      "cols": 11
     },
     "firstRows": [
       {
-        "notVoid": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        "notVoid": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
         "composition": {
-          "shop": 20
+          "fight": 20,
+          "potion": 1,
+          "egg": 1,
+          "shop": 1
         }
       },
       {
-        "notVoid": [1, 4, 5, 8],
+        "notVoid": [1, 3, 5, 7, 9],
         "composition": {
-          "empty": 4,
+          "empty": 5,
           "void": 99
         }
       }

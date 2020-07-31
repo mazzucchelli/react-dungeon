@@ -7,16 +7,12 @@ export const allMonsters = [
     quantity: 30,
     probability: 10,
     stats: {
-      HP: 2,
+      HP: 1,
       shield: 0,
       att: 2,
     },
     rewards: {
-      // coins: {
-      //   base: "1 | 2",
-      //   delta: 1.08,
-      // },
-      coins: 5,
+      coins: true,
     },
   },
   {
@@ -29,14 +25,10 @@ export const allMonsters = [
     stats: {
       HP: 2,
       shield: 0,
-      att: 3,
+      att: 2,
     },
     rewards: {
-      // coins: {
-      //   base: "1 | 2",
-      //   delta: 1.08,
-      // },
-      coins: 5,
+      coins: true,
     },
   },
   {
@@ -53,11 +45,7 @@ export const allMonsters = [
       elusion: 5,
     },
     rewards: {
-      // coins: {
-      //   base: "1 | 2",
-      //   delta: 1.08,
-      // },
-      coins: 5,
+      coins: true,
     },
   },
   {
@@ -71,14 +59,10 @@ export const allMonsters = [
       HP: 2,
       shield: 0,
       att: 1,
-      elusion: 7,
+      elusion: 8,
     },
     rewards: {
-      // coins: {
-      //   base: "1 | 2",
-      //   delta: 1.08,
-      // },
-      coins: 5,
+      coins: true,
     },
   },
   {
@@ -94,11 +78,7 @@ export const allMonsters = [
       att: 1,
     },
     rewards: {
-      // coins: {
-      //   base: "1 | 2",
-      //   delta: 1.08,
-      // },
-      coins: 5,
+      coins: true,
     },
   },
   {
@@ -114,11 +94,7 @@ export const allMonsters = [
       att: "1 | 2",
     },
     rewards: {
-      // coins: {
-      //   base: "1 | 2",
-      //   delta: 1.08,
-      // },
-      coins: 5,
+      coins: true,
     },
   },
   {
@@ -129,16 +105,12 @@ export const allMonsters = [
     quantity: 30,
     probability: 6,
     stats: {
-      HP: 2,
+      HP: 3,
       shield: 0,
       att: 2,
     },
     rewards: {
-      // coins: {
-      //   base: "1 | 2",
-      //   delta: 1.08,
-      // },
-      coins: 5,
+      coins: true,
     },
   },
   {
@@ -149,16 +121,12 @@ export const allMonsters = [
     quantity: 30,
     probability: 6,
     stats: {
-      HP: 2,
-      shield: 0,
-      att: 2,
+      HP: 5,
+      shield: 2,
+      att: "1 | 3",
     },
     rewards: {
-      // coins: {
-      //   base: "1 | 2",
-      //   delta: 1.08,
-      // },
-      coins: 5,
+      coins: true,
     },
   },
   {
@@ -169,16 +137,12 @@ export const allMonsters = [
     quantity: 30,
     probability: 6,
     stats: {
-      HP: 2,
-      shield: 0,
-      att: 2,
+      HP: 4,
+      shield: 4,
+      att: "1 | 3",
     },
     rewards: {
-      // coins: {
-      //   base: "1 | 2",
-      //   delta: 1.08,
-      // },
-      coins: 5,
+      coins: true,
     },
   },
   {
@@ -189,16 +153,12 @@ export const allMonsters = [
     quantity: 30,
     probability: 6,
     stats: {
-      HP: 2,
+      HP: 4,
       shield: 0,
-      att: 2,
+      att: 4,
     },
     rewards: {
-      // coins: {
-      //   base: "1 | 2",
-      //   delta: 1.08,
-      // },
-      coins: 5,
+      coins: true,
     },
   },
   {
@@ -210,15 +170,11 @@ export const allMonsters = [
     probability: 6,
     stats: {
       HP: 2,
-      shield: 0,
+      shield: 2,
       att: 2,
     },
     rewards: {
-      // coins: {
-      //   base: "1 | 2",
-      //   delta: 1.08,
-      // },
-      coins: 5,
+      coins: true,
     },
   },
   {
@@ -230,15 +186,11 @@ export const allMonsters = [
     probability: 6,
     stats: {
       HP: 2,
-      shield: 0,
+      shield: 10,
       att: 2,
     },
     rewards: {
-      // coins: {
-      //   base: "1 | 2",
-      //   delta: 1.08,
-      // },
-      coins: 5,
+      coins: true,
     },
   },
   {
@@ -254,11 +206,7 @@ export const allMonsters = [
       att: 2,
     },
     rewards: {
-      // coins: {
-      //   base: "1 | 2",
-      //   delta: 1.08,
-      // },
-      coins: 5,
+      coins: true,
     },
   },
   {
@@ -269,16 +217,12 @@ export const allMonsters = [
     quantity: 30,
     probability: 6,
     stats: {
-      HP: 2,
+      HP: 3,
       shield: 0,
-      att: 2,
+      att: 3,
     },
     rewards: {
-      // coins: {
-      //   base: "1 | 2",
-      //   delta: 1.08,
-      // },
-      coins: 5,
+      coins: true,
     },
   },
   {
@@ -289,16 +233,12 @@ export const allMonsters = [
     quantity: 30,
     probability: 6,
     stats: {
-      HP: 2,
-      shield: 0,
+      HP: 4,
+      shield: 1,
       att: 2,
     },
     rewards: {
-      // coins: {
-      //   base: "1 | 2",
-      //   delta: 1.08,
-      // },
-      coins: 5,
+      coins: true,
     },
   },
 ];
