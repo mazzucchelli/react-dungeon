@@ -13,7 +13,7 @@
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-pixelify": "^0.2.2",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "shortid": "2.2.15",
     "styled-components": "5.1.1",
     "styled-css-grid": "^1.2.1",
